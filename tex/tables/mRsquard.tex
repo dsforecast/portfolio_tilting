@@ -1,0 +1,47 @@
+\begin{table}[h!]
+\fontsize{11}{18}\selectfont{
+\begin{center}
+\caption{Forecast performance in terms of out-of-sample R$^2$ for 22 Dow Jones constituents (sample: 2004 - 2015) using a Bayesian VAR(1)}
+\label{tab:mRsquard_BVAR}
+\begin{tabularx}{1\textwidth}{@{}X@{\hspace{0.1cm}}c@{\hspace{0.1cm}}c@{\hspace{0.1cm}}c@{\hspace{0.1cm}}c@{\hspace{0.1cm}}c@{\hspace{0.1cm}}c@{\hspace{0.1cm}}c@{\hspace{0.1cm}}c@{\hspace{0.1cm}}c@{\hspace{0.1cm}}c@{\hspace{0.1cm}}c@{}}
+\toprule\toprule
+ Stock  & AA	 & AAPL	 & AIG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 & HD	 & INTC	\\
+\midrule
+ Log DY  & -27822.88	 & -496.75	 & -24427.94	 & -1181.45	 & -11062.87	 & -885.07	 & -581.65	 & -578.10	 & -1157.18	 & -886.65	 & -971.27	\\
+ Log EPR  & -3668.14	 & -626.04	 & -269.04	 & -1047.16	 & -171390.43	 & -564.11	 & \textbf{138.31}	 & -406.50	 & -1415.10	 & -1609.24	 & -408.06	\\
+ Log DPR  & -352.12	 & -1156.35	 & -193.17	 & -2146.54	 & -4513.90	 & -388.91	 & -900.14	 & -102.17	 & -1020.22	 & -354.92	 & -552.10	\\
+ BMR  & -430.29	 & \textbf{368.36}	 & -1363.49	 & -199.66	 & -637.18	 & -394.09	 & -484.85	 & -600.33	 & -149.89	 & -98.61	 & -307.54	\\
+\midrule
+ 3M Tbill rate  & -84.73	 & -16.14	 & -318.56	 & \textbf{37.40}	 & -1085.75	 & -314.27	 & -630.31	 & -634.93	 & -590.40	 & -534.38	 & -550.40	\\
+ Market return  & -393.67	 & -31.82	 & -188.94	 & -522.46	 & -439.70	 & -265.01	 & -107.16	 & -814.63	 & -584.93	 & -865.61	 & -212.87	\\
+ LT yield  & -384.60	 & -284.51	 & \textbf{169.19}	 & -542.60	 & -472.83	 & -128.64	 & \textbf{62.45}	 & -487.09	 & -418.78	 & -780.17	 & -659.72	\\
+ CPI inflation  & -332.59	 & \textbf{232.05}	 & -294.50	 & -1441.29	 & -1033.61	 & -229.81	 & -545.19	 & -393.90	 & -1406.95	 & -340.57	 & -1116.21	\\
+\midrule
+ Log TPR  & -145.63	 & -1022.49	 & -2498.19	 & -1903.67	 & \textbf{0.14}	 & -708.43	 & -371.12	 & -768.72	 & -1094.43	 & -477.16	 & -276.01	\\
+ Log TPV  & -589.80	 & \textbf{369.49}	 & \textbf{11.56}	 & -437.48	 & -438.95	 & -337.05	 & -257.43	 & -444.55	 & -1130.17	 & -376.60	 & -1473.09	\\
+ Log REC  & -1991.61	 & -939.07	 & -389.58	 & -2327.01	 & -3270.33	 & -953.56	 & -470.02	 & -1746.85	 & -641.90	 & -117.09	 & -1531.85	\\
+ Log REC return  & -210.48	 & -1311.22	 & -659.21	 & -28.99	 & -584.37	 & -83.48	 & -126.46	 & \textbf{35.77}	 & -131.70	 & -68.26	 & -1172.07	\\
+\midrule
+\midrule
+ Stock  & IBM	 & JNJ	 & MCD	 & MMM	 & MRK	 & MSFT	 & PFE	 & PG	 & UTX	 & WMT	 & DIS	\\
+\midrule
+ Log DY  & -3800.88	 & -6128.28	 & -1273.71	 & -870.47	 & -258.77	 & -733.46	 & -180.32	 & -1996.67	 & -875.31	 & -1358.70	 & -173.51	\\
+ Log EPR  & -134.00	 & -37.51	 & -1986.50	 & -434.83	 & -1085.13	 & -337.85	 & -172.07	 & -216.30	 & -147.51	 & -966.29	 & \textbf{111.41}	\\
+ Log DPR  & -1920.05	 & -6914.62	 & -1098.67	 & -1016.24	 & -52.88	 & -365.54	 & -201.06	 & -2576.85	 & \textbf{449.01}	 & -1385.33	 & -192.75	\\
+ BMR  & \textbf{21.06}	 & -1215.48	 & -1175.23	 & -769.90	 & -13.23	 & -922.98	 & \textbf{77.28}	 & -1724.00	 & -145.85	 & -131.34	 & -319.18	\\
+\midrule
+ 3M Tbill rate  & -286.36	 & -583.47	 & -874.97	 & -505.65	 & -135.46	 & -513.77	 & -132.85	 & -499.62	 & -426.87	 & -216.70	 & \textbf{68.94}	\\
+ Market return  & \textbf{230.19}	 & -687.20	 & -981.64	 & -469.55	 & -212.61	 & \textbf{37.79}	 & \textbf{85.12}	 & -2315.12	 & -266.32	 & \textbf{227.30}	 & -617.27	\\
+ LT yield  & -370.59	 & -380.90	 & -1191.86	 & -491.58	 & -628.70	 & -710.60	 & -21.16	 & -561.65	 & -271.13	 & -440.52	 & -428.26	\\
+ CPI inflation  & -296.93	 & -496.89	 & -597.67	 & -803.82	 & -8.11	 & -455.50	 & -112.80	 & -9253.91	 & -676.10	 & -283.58	 & -1326.05	\\
+\midrule
+ Log TPR  & -221.55	 & -1835.13	 & -341.27	 & -367.90	 & -479.58	 & -869.74	 & -512.80	 & -4560.04	 & \textbf{62.49}	 & -208.86	 & -407.68	\\
+ Log TPV  & -43.76	 & -121.75	 & -44.07	 & -1131.06	 & -214.31	 & -805.58	 & -483.02	 & -2293.53	 & -321.93	 & -1241.00	 & -1486.73	\\
+ Log REC  & -130.42	 & -228.82	 & -3778.68	 & -601.50	 & -330.97	 & -543.91	 & -57.83	 & -14277.80	 & -3575.31	 & \textbf{20.74}	 & -472.72	\\
+ Log REC return  & -421.03	 & -493.55	 & -259.50	 & -936.13	 & -591.70	 & -656.91	 & -179.03	 & -1426.06	 & -3803.64	 & -290.27	 & -325.34	\\
+\bottomrule\bottomrule
+\end{tabularx}
+\vspace{0.2cm}
+\caption*{\footnotesize \textit{Note:} The table provides forecast performance results in terms of mean out-of-sample R$^2$ for 22 Dow Jones constituents (sample: 2004 - 2015). The benchmark model is a simple mean model. For each asset, we estimate a Bayesian VAR system with constant coefficients for the monthly excess returns on an intercept and a lagged predictor variable, i.e. $\begin{bmatrix}r_t\\x_t\end{bmatrix}=a+A_1\begin{bmatrix}r_{t-i}\\x_{t-i}\end{bmatrix}+\varepsilon_t$, $t=1,\ldots,T$. Further, DY is the divdend yield, PR is the earnings-price ratio, DPR is the dividen-price-ratio, BMR is the book-to-markt ratio, LT is longterm yield, TPR is the target price return, TPV the target price variance and REC stands for recommendations. Values above zero indicate that a given predictor has better forecast performance than the benchmark model, while negative values suggest the opposite. All values are multiplied by 100.}
+\end{center}}
+\end{table}

@@ -1,0 +1,1821 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.13)  5 NOV 2016 12:33
+entering extended mode
+**RMSFEs.tex
+(RMSFEs.tex
+LaTeX2e <2015/01/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 69 languages loaded.
+
+! LaTeX Error: Environment table undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \begin{table}
+                 [h!]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \begin{table}[
+                  h!]
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no ! in font nullfont!
+Missing character: There is no ] in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--3
+[] 
+ []
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4 \caption
+            {Relative root mean squared errors between forecasted and observ...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment tabularx undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 \begin{tabularx}
+                    {1\textwidth}{@{}X@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.7 \begin{tabularx}{1\textwidth}
+                                 {@{}X@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.7 \begin{tabularx}{1\textwidth}
+                                 {@{}X@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c...
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.8 \toprule
+            \toprule
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.8 \toprule\toprule
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+l.9  Stock  &
+              AA	 & AAPL	 & AIG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 & HD	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.9  Stock  & AA	 &
+                    AAPL	 & AIG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 & HD	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.9  Stock  & AA	 & AAPL	 &
+                            AIG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 & HD	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.9  Stock  & AA	 & AAPL	 & AIG	 &
+                                   AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 & HD	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.9  Stock  & AA	 & AAPL	 & AIG	 & AXP	 &
+                                          BA	 & CAT	 & KO	 & DD	 & GE	 & HD	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.9  Stock  & AA	 & AAPL	 & AIG	 & AXP	 & BA	 &
+                                                CAT	 & KO	 & DD	 & GE	 & HD	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.9 ... & AA	 & AAPL	 & AIG	 & AXP	 & BA	 & CAT	 &
+                                                   KO	 & DD	 & GE	 & HD	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.9 ... & AAPL	 & AIG	 & AXP	 & BA	 & CAT	 & KO	 &
+                                                   DD	 & GE	 & HD	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.9 ...L	 & AIG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 &
+                                                   GE	 & HD	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.9 ...IG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 &
+                                                   HD	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (39.08546pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 Relative 
+ []
+
+
+Overfull \hbox (19.80128pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 root 
+ []
+
+
+Overfull \hbox (25.55003pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 mean 
+ []
+
+
+Overfull \hbox (36.89545pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 squared 
+ []
+
+
+Overfull \hbox (12.80542pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 er- 
+ []
+
+
+Overfull \hbox (18.37169pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 rors 
+ []
+
+
+Overfull \hbox (14.90417pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 be- 
+ []
+
+
+Overfull \hbox (27.375pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 tween 
+ []
+
+
+Overfull \hbox (21.62627pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 fore- 
+ []
+
+
+Overfull \hbox (29.8692pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 casted 
+ []
+
+
+Overfull \hbox (17.6417pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 and 
+ []
+
+
+Overfull \hbox (15.20834pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 ob- 
+ []
+
+
+Overfull \hbox (29.89961pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 served 
+ []
+
+
+Overfull \hbox (20.44003pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 spot 
+ []
+
+
+Overfull \hbox (27.46628pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 prices 
+ []
+
+
+Overfull \hbox (13.1096pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 for 
+ []
+
+
+Overfull \hbox (10.95001pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 20 
+ []
+
+
+Overfull \hbox (21.44376pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 Dow 
+ []
+
+
+Overfull \hbox (26.37128pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 Jones 
+ []
+
+
+Overfull \hbox (20.07501pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 con- 
+ []
+
+
+Overfull \hbox (41.18422pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 stituents 
+ []
+
+
+Overfull \hbox (26.82753pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 (sam- 
+ []
+
+
+Overfull \hbox (17.03336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 ple: 
+ []
+
+
+Overfull \hbox (21.90002pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 1999 
+ []
+
+
+Overfull \hbox (3.65pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 - 
+ []
+
+
+Overfull \hbox (26.15837pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 2015) 
+ []
+
+
+Overfull \hbox (30.7209pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 1@X@ 
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 c@ 
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 c@ 
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 c@ 
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 c@ 
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 c@ 
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 c@ 
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 c@ 
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 c@ 
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 c@ 
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 c@ 
+ []
+
+
+Overfull \hbox (26.46254pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 Stock 
+ []
+
+
+Overfull \hbox (16.42502pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 AA 
+ []
+
+
+Overfull \hbox (30.72087pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 AAPL 
+ []
+
+
+Overfull \hbox (20.7594pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 AIG 
+ []
+
+
+Overfull \hbox (23.8771pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 AXP 
+ []
+
+
+Overfull \hbox (15.96878pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 BA 
+ []
+
+
+Overfull \hbox (23.11667pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 CAT 
+ []
+
+
+Overfull \hbox (16.7292pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 KO 
+ []
+
+
+Overfull \hbox (16.72919pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 DD 
+ []
+
+
+Overfull \hbox (16.04482pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 GE 
+ []
+
+
+Overfull \hbox (16.5771pt too wide) in paragraph at lines 4--9
+ \OT1/cmr/m/n/10.95 HD 
+ []
+
+! Undefined control sequence.
+<recently read> \midrule 
+                         
+l.10 \midrule
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+l.11  rRMSFE  &
+                $1.33^{**}$	 & \textbf{0.74}	 & $1.45^{***}$	 & \textbf{0.93...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 11.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 11.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 11.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 11.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.69997> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.5> on input line 11.
+! Misplaced alignment tab character &.
+l.11  rRMSFE  & $1.33^{**}$	 &
+                               \textbf{0.74}	 & $1.45^{***}$	 & \textbf{0.93...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.11  rRMSFE  & $1.33^{**}$	 & \textbf{0.74}	 &
+                                                $1.45^{***}$	 & \textbf{0.93...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.11 ...^{**}$	 & \textbf{0.74}	 & $1.45^{***}$	 &
+                                                   \textbf{0.93}	 & \textbf{...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.11 ...{0.74}	 & $1.45^{***}$	 & \textbf{0.93}	 &
+                                                   \textbf{0.87}	 & \textbf{...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.11 ...***}$	 & \textbf{0.93}	 & \textbf{0.87}	 &
+                                                   \textbf{0.96}	 & 1.09	 & ...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.11 ...0.93}	 & \textbf{0.87}	 & \textbf{0.96}	 &
+                                                   1.09	 & $1.24^{**}$	 & 1....
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.11 ... \textbf{0.87}	 & \textbf{0.96}	 & 1.09	 &
+                                                   $1.24^{**}$	 & 1.23	 & \t...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.11 ... & \textbf{0.96}	 & 1.09	 & $1.24^{**}$	 &
+                                                   1.23	 & \textbf{0.83}	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.11 ...bf{0.96}	 & 1.09	 & $1.24^{**}$	 & 1.23	 &
+                                                   \textbf{0.83}	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (43.07007pt too wide) in paragraph at lines 11--11
+ []\OT1/cmr/m/n/10.95 rRMSFE 
+ []
+
+
+Overfull \hbox (28.46681pt too wide) in paragraph at lines 11--11
+ $\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 33[]$ 
+ []
+
+
+Overfull \hbox (22.3865pt too wide) in paragraph at lines 11--11
+ \OT1/cmr/bx/n/10.95 0.74 
+ []
+
+
+Overfull \hbox (32.71687pt too wide) in paragraph at lines 11--11
+ $\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 45[]$ 
+ []
+
+
+Overfull \hbox (22.3865pt too wide) in paragraph at lines 11--11
+ \OT1/cmr/bx/n/10.95 0.93 
+ []
+
+
+Overfull \hbox (22.3865pt too wide) in paragraph at lines 11--11
+ \OT1/cmr/bx/n/10.95 0.87 
+ []
+
+
+Overfull \hbox (22.3865pt too wide) in paragraph at lines 11--11
+ \OT1/cmr/bx/n/10.95 0.96 
+ []
+
+
+Overfull \hbox (19.46669pt too wide) in paragraph at lines 11--11
+ \OT1/cmr/m/n/10.95 1.09 
+ []
+
+
+Overfull \hbox (28.46681pt too wide) in paragraph at lines 11--11
+ $\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 24[]$ 
+ []
+
+
+Overfull \hbox (19.46669pt too wide) in paragraph at lines 11--11
+ \OT1/cmr/m/n/10.95 1.23 
+ []
+
+
+Overfull \hbox (22.3865pt too wide) in paragraph at lines 11--11
+ \OT1/cmr/bx/n/10.95 0.83 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+! LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 ... & $1.24^{**}$	 & 1.23	 & \textbf{0.83}	\\
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1{C:/Users/Christoph/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+! Undefined control sequence.
+<write> \newlabel{tab:rmsfe}{{}{\thepage 
+                                         }}
+l.11 ... & $1.24^{**}$	 & 1.23	 & \textbf{0.83}	\\
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\newlabel{tab:rmsfe}{{}{}}
+]
+! Undefined control sequence.
+<recently read> \midrule 
+                         
+l.12 \midrule
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.13 \midrule
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+l.14  Stock  &
+               INTC	 & IBM	 & JNJ	 & MCD	 & MRK	 & MSFT	 & PG	 & UTX	 & WMT	...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.14  Stock  & INTC	 &
+                       IBM	 & JNJ	 & MCD	 & MRK	 & MSFT	 & PG	 & UTX	 & WMT	...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.14  Stock  & INTC	 & IBM	 &
+                              JNJ	 & MCD	 & MRK	 & MSFT	 & PG	 & UTX	 & WMT	...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.14  Stock  & INTC	 & IBM	 & JNJ	 &
+                                     MCD	 & MRK	 & MSFT	 & PG	 & UTX	 & WMT	...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.14  Stock  & INTC	 & IBM	 & JNJ	 & MCD	 &
+                                            MRK	 & MSFT	 & PG	 & UTX	 & WMT	...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.14  Stock  & INTC	 & IBM	 & JNJ	 & MCD	 & MRK	 &
+                                                   MSFT	 & PG	 & UTX	 & WMT	...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.14 ...NTC	 & IBM	 & JNJ	 & MCD	 & MRK	 & MSFT	 &
+                                                   PG	 & UTX	 & WMT	 & DIS	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.14 ... IBM	 & JNJ	 & MCD	 & MRK	 & MSFT	 & PG	 &
+                                                   UTX	 & WMT	 & DIS	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.14 ... JNJ	 & MCD	 & MRK	 & MSFT	 & PG	 & UTX	 &
+                                                   WMT	 & DIS	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.14 ... MCD	 & MRK	 & MSFT	 & PG	 & UTX	 & WMT	 &
+                                                   DIS	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (26.46254pt too wide) in paragraph at lines 14--14
+ []\OT1/cmr/m/n/10.95 Stock 
+ []
+
+
+Overfull \hbox (27.98335pt too wide) in paragraph at lines 14--14
+ \OT1/cmr/m/n/10.95 INTC 
+ []
+
+
+Overfull \hbox (21.74796pt too wide) in paragraph at lines 14--14
+ \OT1/cmr/m/n/10.95 IBM 
+ []
+
+
+Overfull \hbox (19.46669pt too wide) in paragraph at lines 14--14
+ \OT1/cmr/m/n/10.95 JNJ 
+ []
+
+
+Overfull \hbox (26.31046pt too wide) in paragraph at lines 14--14
+ \OT1/cmr/m/n/10.95 MCD 
+ []
+
+
+Overfull \hbox (26.61464pt too wide) in paragraph at lines 14--14
+ \OT1/cmr/m/n/10.95 MRK 
+ []
+
+
+Overfull \hbox (31.17714pt too wide) in paragraph at lines 14--14
+ \OT1/cmr/m/n/10.95 MSFT 
+ []
+
+
+Overfull \hbox (16.04482pt too wide) in paragraph at lines 14--14
+ \OT1/cmr/m/n/10.95 PG 
+ []
+
+
+Overfull \hbox (24.33336pt too wide) in paragraph at lines 14--14
+ \OT1/cmr/m/n/10.95 UTX 
+ []
+
+
+Overfull \hbox (29.20004pt too wide) in paragraph at lines 14--14
+ \OT1/cmr/m/n/10.95 WMT 
+ []
+
+
+Overfull \hbox (18.4021pt too wide) in paragraph at lines 14--14
+ \OT1/cmr/m/n/10.95 DIS 
+ []
+
+! Undefined control sequence.
+<recently read> \midrule 
+                         
+l.15 \midrule
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Misplaced alignment tab character &.
+l.16  rRMSFE  &
+                1.36	 & $\mathbf{0.94^*}$	 & \textbf{0.85}	 & $\mathbf{0.69^...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.16  rRMSFE  & 1.36	 &
+                        $\mathbf{0.94^*}$	 & \textbf{0.85}	 & $\mathbf{0.69^...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 16.
+
+! Misplaced alignment tab character &.
+l.16  rRMSFE  & 1.36	 & $\mathbf{0.94^*}$	 &
+                                             \textbf{0.85}	 & $\mathbf{0.69^...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.16 ...6	 & $\mathbf{0.94^*}$	 & \textbf{0.85}	 &
+                                                   $\mathbf{0.69^{***}}$	 & ...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.16 ... \textbf{0.85}	 & $\mathbf{0.69^{***}}$	 &
+                                                   $1.25^{*}$	 & $1.65^{***}...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.16 ...	 & $\mathbf{0.69^{***}}$	 & $1.25^{*}$	 &
+                                                   $1.65^{***}$	 & 1.01	 & \...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.16 ...9^{***}}$	 & $1.25^{*}$	 & $1.65^{***}$	 &
+                                                   1.01	 & \textbf{0.82}	 & ...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.16 ...$	 & $1.25^{*}$	 & $1.65^{***}$	 & 1.01	 &
+                                                   \textbf{0.82}	 & 1.24	 & ...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.16 ...& $1.65^{***}$	 & 1.01	 & \textbf{0.82}	 &
+                                                   1.24	 & \textbf{0.84}	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.16 ...{***}$	 & 1.01	 & \textbf{0.82}	 & 1.24	 &
+                                                   \textbf{0.84}	\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (43.07007pt too wide) in paragraph at lines 16--16
+ []\OT1/cmr/m/n/10.95 rRMSFE 
+ []
+
+
+Overfull \hbox (19.46669pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/m/n/10.95 1.36 
+ []
+
+
+Overfull \hbox (26.68034pt too wide) in paragraph at lines 16--16
+ $[]$ 
+ []
+
+
+Overfull \hbox (22.3865pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/bx/n/10.95 0.85 
+ []
+
+
+Overfull \hbox (35.18047pt too wide) in paragraph at lines 16--16
+ $[]$ 
+ []
+
+
+Overfull \hbox (24.21675pt too wide) in paragraph at lines 16--16
+ $\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 25[]$ 
+ []
+
+
+Overfull \hbox (32.71687pt too wide) in paragraph at lines 16--16
+ $\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 65[]$ 
+ []
+
+
+Overfull \hbox (19.46669pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/m/n/10.95 1.01 
+ []
+
+
+Overfull \hbox (22.3865pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/bx/n/10.95 0.82 
+ []
+
+
+Overfull \hbox (19.46669pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/m/n/10.95 1.24 
+ []
+
+
+Overfull \hbox (22.3865pt too wide) in paragraph at lines 16--16
+ \OT1/cmr/bx/n/10.95 0.84 
+ []
+
+! Undefined control sequence.
+<recently read> \bottomrule 
+                            
+l.17 \bottomrule
+                \bottomrule
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.17 \bottomrule\bottomrule
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{center} on input line 3 ended by \end{tabularx}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 \end{tabularx}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 \caption
+             *{\footnotesize \textit{Note:} The table displays relative root...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+l.20 \caption*{\footnotesize
+                             \textit{Note:} The table displays relative root...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.20 ...ce forecast by the test proposed by \citet
+                                                  {giacomini2006}. One/two/t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (31.24382pt too wide) in paragraph at lines 20--21
+ []\OT1/cmr/m/n/10.95 *\OT1/cmr/m/it/10.95 Note: 
+ []
+
+
+Overfull \hbox (18.85835pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 The 
+ []
+
+
+Overfull \hbox (13.38335pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 ta- 
+ []
+
+
+Overfull \hbox (13.99168pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 ble 
+ []
+
+
+Overfull \hbox (17.09418pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 dis- 
+ []
+
+
+Overfull \hbox (24.3942pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 plays 
+ []
+
+
+Overfull \hbox (15.84709pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 rel- 
+ []
+
+
+Overfull \hbox (9.125pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 a- 
+ []
+
+
+Overfull \hbox (17.6417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 tive 
+ []
+
+
+Overfull \hbox (19.80128pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 root 
+ []
+
+
+Overfull \hbox (25.55003pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 mean 
+ []
+
+
+Overfull \hbox (36.89545pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 squared 
+ []
+
+
+Overfull \hbox (12.80542pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 er- 
+ []
+
+
+Overfull \hbox (18.37169pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 rors 
+ []
+
+
+Overfull \hbox (14.90417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 be- 
+ []
+
+
+Overfull \hbox (27.375pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 tween 
+ []
+
+
+Overfull \hbox (15.20834pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 ob- 
+ []
+
+
+Overfull \hbox (29.89961pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 served 
+ []
+
+
+Overfull \hbox (20.44003pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 spot 
+ []
+
+
+Overfull \hbox (23.14711pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 price 
+ []
+
+
+Overfull \hbox (29.80833pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 twelve 
+ []
+
+
+Overfull \hbox (35.04004pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 months 
+ []
+
+
+Overfull \hbox (27.98337pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 ahead 
+ []
+
+
+Overfull \hbox (17.6417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 and 
+ []
+
+
+Overfull \hbox (15.20836pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 the 
+ []
+
+
+Overfull \hbox (25.55003pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 mean 
+ []
+
+
+Overfull \hbox (14.6pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 12- 
+ []
+
+
+Overfull \hbox (30.72087pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 month 
+ []
+
+
+Overfull \hbox (16.7596pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 for- 
+ []
+
+
+Overfull \hbox (23.45126pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 ward 
+ []
+
+
+Overfull \hbox (17.6721pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 tar- 
+ []
+
+
+Overfull \hbox (14.60002pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 get 
+ []
+
+
+Overfull \hbox (23.14711pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 price 
+ []
+
+
+Overfull \hbox (9.79417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 as 
+ []
+
+
+Overfull \hbox (18.55417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 well 
+ []
+
+
+Overfull \hbox (9.79417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 as 
+ []
+
+
+Overfull \hbox (15.20836pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 the 
+ []
+
+
+Overfull \hbox (17.03333pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 two 
+ []
+
+
+Overfull \hbox (20.10544pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 year 
+ []
+
+
+Overfull \hbox (17.09418pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 his- 
+ []
+
+
+Overfull \hbox (17.6721pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 tor- 
+ []
+
+
+Overfull \hbox (6.69167pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 i- 
+ []
+
+
+Overfull \hbox (13.38335pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 cal 
+ []
+
+
+Overfull \hbox (14.6pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 av- 
+ []
+
+
+Overfull \hbox (12.80542pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 er- 
+ []
+
+
+Overfull \hbox (15.81668pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 age 
+ []
+
+
+Overfull \hbox (13.1096pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 for 
+ []
+
+
+Overfull \hbox (10.95001pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 20 
+ []
+
+
+Overfull \hbox (21.44376pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 Dow 
+ []
+
+
+Overfull \hbox (26.37128pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 Jones 
+ []
+
+
+Overfull \hbox (20.07501pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 con- 
+ []
+
+
+Overfull \hbox (41.18422pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 stituents 
+ []
+
+
+Overfull \hbox (14.90417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 be- 
+ []
+
+
+Overfull \hbox (27.375pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 tween 
+ []
+
+
+Overfull \hbox (21.90002pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 1999 
+ []
+
+
+Overfull \hbox (17.6417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 and 
+ []
+
+
+Overfull \hbox (24.9417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 2015. 
+ []
+
+
+Overfull \hbox (19.46666pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 Val- 
+ []
+
+
+Overfull \hbox (15.26918pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 ues 
+ []
+
+
+Overfull \hbox (24.97208pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 lower 
+ []
+
+
+Overfull \hbox (21.90004pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 than 
+ []
+
+
+Overfull \hbox (16.42502pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 one 
+ []
+
+
+Overfull \hbox (12.77501pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 in- 
+ []
+
+
+Overfull \hbox (12.77501pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 di- 
+ []
+
+
+Overfull \hbox (19.46669pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 cate 
+ []
+
+
+Overfull \hbox (20.07504pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 that 
+ []
+
+
+Overfull \hbox (15.20836pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 the 
+ []
+
+
+Overfull \hbox (17.6721pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 tar- 
+ []
+
+
+Overfull \hbox (14.60002pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 get 
+ []
+
+
+Overfull \hbox (23.14711pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 price 
+ []
+
+
+Overfull \hbox (20.07501pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 gen- 
+ []
+
+
+Overfull \hbox (12.80542pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 er- 
+ []
+
+
+Overfull \hbox (18.91919pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 ates 
+ []
+
+
+Overfull \hbox (14.0525pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 su- 
+ []
+
+
+Overfull \hbox (14.90417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 pe- 
+ []
+
+
+Overfull \hbox (17.0942pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 rior 
+ []
+
+
+Overfull \hbox (21.62627pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 fore- 
+ []
+
+
+Overfull \hbox (18.91919pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 cast 
+ []
+
+
+Overfull \hbox (19.19293pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 per- 
+ []
+
+
+Overfull \hbox (16.7596pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 for- 
+ []
+
+
+Overfull \hbox (33.45837pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 mance. 
+ []
+
+
+Overfull \hbox (15.99918pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 For 
+ []
+
+
+Overfull \hbox (20.9875pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 each 
+ []
+
+
+Overfull \hbox (27.74004pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 stock, 
+ []
+
+
+Overfull \hbox (12.47083pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 we 
+ []
+
+
+Overfull \hbox (17.70253pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 test 
+ []
+
+
+Overfull \hbox (38.35547pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 whether 
+ []
+
+
+Overfull \hbox (15.20836pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 the 
+ []
+
+
+Overfull \hbox (17.6721pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 tar- 
+ []
+
+
+Overfull \hbox (14.60002pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 get 
+ []
+
+
+Overfull \hbox (23.14711pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 price 
+ []
+
+
+Overfull \hbox (21.62627pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 fore- 
+ []
+
+
+Overfull \hbox (18.91919pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 cast 
+ []
+
+
+Overfull \hbox (15.87752pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 has 
+ []
+
+
+Overfull \hbox (24.97208pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 lower 
+ []
+
+
+Overfull \hbox (30.72089pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 MSFE 
+ []
+
+
+Overfull \hbox (21.90004pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 than 
+ []
+
+
+Overfull \hbox (15.20836pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 the 
+ []
+
+
+Overfull \hbox (14.6pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 av- 
+ []
+
+
+Overfull \hbox (12.80542pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 er- 
+ []
+
+
+Overfull \hbox (15.81668pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 age 
+ []
+
+
+Overfull \hbox (23.14711pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 price 
+ []
+
+
+Overfull \hbox (21.62627pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 fore- 
+ []
+
+
+Overfull \hbox (18.91919pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 cast 
+ []
+
+
+Overfull \hbox (11.55835pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 by 
+ []
+
+
+Overfull \hbox (15.20836pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 the 
+ []
+
+
+Overfull \hbox (17.70253pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 test 
+ []
+
+
+Overfull \hbox (19.4971pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 pro- 
+ []
+
+
+Overfull \hbox (27.1317pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 posed 
+ []
+
+
+Overfull \hbox (11.55835pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 by 
+ []
+
+
+Overfull \hbox (12.16667pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 gi- 
+ []
+
+
+Overfull \hbox (9.125pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 a- 
+ []
+
+
+Overfull \hbox (13.99167pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 co- 
+ []
+
+
+Overfull \hbox (46.2334pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 mini2006. 
+ []
+
+
+Overfull \hbox (71.81383pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 One/two/three 
+ []
+
+
+Overfull \hbox (13.44417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 as- 
+ []
+
+
+Overfull \hbox (17.06377pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 ter- 
+ []
+
+
+Overfull \hbox (17.4592pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 isks 
+ []
+
+
+Overfull \hbox (14.6pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 de- 
+ []
+
+
+Overfull \hbox (20.68336pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 note 
+ []
+
+
+Overfull \hbox (12.80542pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 re- 
+ []
+
+
+Overfull \hbox (16.72917pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 jec- 
+ []
+
+
+Overfull \hbox (18.85837pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 tion 
+ []
+
+
+Overfull \hbox (8.82085pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 of 
+ []
+
+
+Overfull \hbox (15.20836pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 the 
+ []
+
+
+Overfull \hbox (17.94585pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 null 
+ []
+
+
+Overfull \hbox (15.20834pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 hy- 
+ []
+
+
+Overfull \hbox (25.8542pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 poth- 
+ []
+
+
+Overfull \hbox (8.51666pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 e- 
+ []
+
+
+Overfull \hbox (11.68001pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 sis 
+ []
+
+
+Overfull \hbox (8.82085pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 of 
+ []
+
+
+Overfull \hbox (25.24585pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 equal 
+ []
+
+
+Overfull \hbox (18.88876pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 pre- 
+ []
+
+
+Overfull \hbox (17.64168pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 dic- 
+ []
+
+
+Overfull \hbox (17.6417pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 tive 
+ []
+
+
+Overfull \hbox (21.29169pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 abil- 
+ []
+
+
+Overfull \hbox (12.77502pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 ity 
+ []
+
+
+Overfull \hbox (9.73335pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 at 
+ []
+
+
+Overfull \hbox (15.20836pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 the 
+ []
+
+
+Overfull \hbox (59.0084pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 ten/five/one 
+ []
+
+
+Overfull \hbox (19.19293pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 per- 
+ []
+
+
+Overfull \hbox (19.77084pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 cent 
+ []
+
+
+Overfull \hbox (17.70253pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 test 
+ []
+
+
+Overfull \hbox (24.33336pt too wide) in paragraph at lines 20--21
+ \OT1/cmr/m/n/10.95 level. 
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.22 \end{table}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
+! Emergency stop.
+<*> RMSFEs.tex
+              
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 49 strings out of 493673
+ 620 string characters out of 3141517
+ 57455 words of memory out of 3000000
+ 3488 multiletter control sequences out of 15000+200000
+ 6740 words of font info for 24 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 20i,4n,16p,689b,194s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

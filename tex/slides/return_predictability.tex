@@ -1,0 +1,673 @@
+\documentclass[9pt,xcolor=x11names,compress]{beamer}
+
+%%% Author and Title Information %%%
+\newcommand{\titleinfo}{Sequential Stock Return Prediction Through Copulas}
+\title{\titleinfo}
+\def\authorA{Christoph Frey}
+\def\affiliationA{Erasmus University Rotterdam} 
+\def\emailA{\href{mailto:frey@ese.eur.nl}{frey@ese.eur.nl}}
+\def\authorB{Audra Virbickait\.{e}}
+\def\affiliationB{University of Konstanz} 
+\def\emailB{\href{mailto:virbickaite.audrone@uni.kn}{virbickaite.audrone@uni.kn}}
+\newcommand{\authorinfo}{\authorA, \authorB}
+
+%%% General Packages
+\usepackage[english]{babel} 
+\usepackage[OT1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{caption}
+
+%%%%%%%%%%%%%%
+%%% Beamer Layout %%%
+%%%%%%%%%%%%%%
+
+%%% Default Theme
+\usetheme{default}
+
+%%% Font Family
+\usepackage{cmbright}
+
+%%% No Navigation Bar
+\setbeamertemplate{navigation symbols}{}
+
+%%% Colors
+\definecolor{dblue}{RGB}{40,40,110} %blue
+\definecolor{dgreen}{RGB}{10,140,70} %green
+\definecolor{dred}{RGB}{180,30,30} %red
+
+\setbeamercolor{frametitle}{fg=dblue}
+\setbeamercolor{button}{bg=dblue,fg=white}
+\setbeamertemplate{section in head/foot}{\textcolor{dblue}{\hfill\insertsectionhead}}
+\setbeamertemplate{section in head/foot shaded}{\textcolor{black!15}{\hfill\insertsectionhead}} % faded section titles for inactive sections
+
+% Colored Links
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,citecolor=dblue,pdfpagelabels=TRUE,pdfstartview={FitH},linkcolor=dblue,urlcolor=dblue}
+
+%%% Headline
+\setbeamerfont{headline}{size=\fontsize{6.5}{1},shape=\scshape}
+\setbeamertemplate{headline}{
+	\vspace{0.015\paperheight}
+	{\leavevmode
+		\begin{beamercolorbox}{section in head/foot} 
+			\insertsectionnavigationhorizontal{\paperwidth}{\hspace*{0.1ex}}{\hspace*{0.1ex}}
+		\end{beamercolorbox}%
+		\vspace{0.005\paperheight}}
+	\begin{beamercolorbox}[center]{}
+		\hspace{0.025\paperwidth}\rule{0.95\paperwidth}{0.5pt}\hspace{0.025\paperwidth}
+	\end{beamercolorbox}%
+}
+
+%%% Footline
+\setbeamerfont{footline}{size=\fontsize{6.5}{1},shape=\scshape}
+\setbeamertemplate{footline}{
+	\begin{beamercolorbox}[center]{}
+		\hspace{0.025\paperwidth}\rule{0.95\paperwidth}{0.5pt}\hspace{0.025\paperwidth}
+	\end{beamercolorbox}%
+	\leavevmode
+	\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.8ex,left]{}
+		\hspace*{0.025\paperwidth}\textcolor{dblue}{\insertsubsectionhead}
+	\end{beamercolorbox}%
+	\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.8ex,right]{}
+		\insertframenumber{} $|$ \inserttotalframenumber \hspace{0.025\paperwidth} 
+	\end{beamercolorbox}%
+	\vspace{0.015\paperheight}
+}
+
+%%% Itemize / Enumerate Symbols
+\setbeamertemplate{itemize items}{\textcolor{dblue}{\raisebox{0.6pt}{\footnotesize$\blacktriangleright$}}}
+\setbeamertemplate{itemize subitem}{\textcolor{dblue}{\raisebox{0.6pt}{\footnotesize$\triangleright$}}}
+\setbeamertemplate{itemize subsubitem}{\textcolor{dblue}{\raisebox{0.6pt}{\footnotesize$\bullet$}}}
+\setbeamertemplate{enumerate items}{\textcolor{dblue}{\raisebox{0.6pt}{\footnotesize\insertenumlabel.}}}
+
+%%% Title Page
+\setbeamertemplate{title page}{%
+	\vspace*{0.1\paperheight}
+	{\LARGE \color{dblue}{\inserttitle}}
+	\vskip1em\par
+	\normalsize\authorA
+	\vskip0.5em\par
+	\hspace{0.3cm} \footnotesize\affiliationA\vskip1mm\par
+	\hspace{0.3cm} \footnotesize\emailA\vskip1mm\par
+	\vskip1em\par
+	\normalsize\authorB
+	\vskip0.5em\par
+	\hspace{0.3cm} \footnotesize\affiliationB\vskip1mm\par
+	\hspace{0.3cm} \footnotesize\emailB
+	\vspace{1.8cm}
+	\begin{figure}
+		\today\hfill\includegraphics[height=0.125\linewidth]{signature.pdf}\hspace{.2cm}\includegraphics[height=0.125\linewidth]{unikn.pdf}
+	\end{figure}
+}
+
+%%% New Commands
+
+% Text Color Commands
+\newcommand{\btext}{\textcolor{dblue}}
+\newcommand{\bbtext}[1]{ \textcolor{dblue}{\textbf{#1}}}
+\newcommand{\rtext}{\textcolor{dred}}
+\newcommand{\rbtext}[1]{ \textcolor{dred}{\textbf{#1}}}
+\newcommand{\gtext}{\textcolor{dgreen}}
+\newcommand{\gbtext}[1]{\textcolor{dgreen}{\textbf{#1}}}
+
+% Enumerate Counter
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}} % save current counter
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}} % continue current counter
+
+% Set Introduction = section 0
+\setcounter{section}{-1}
+
+% Bibliography
+\usepackage{hyperref}
+\usepackage{nameref}
+\usepackage[labelformat=empty]{caption}
+\usepackage[sectionbib]{natbib}
+\let\natbibcitet\citet
+\renewcommand\citet{\bibpunct{(}{)}{,}{a}{,}{,}\natbibcitet}
+\let\natbibcitep\citep
+\renewcommand\citep{\bibpunct{(}{)}{;}{a}{,}{;}\natbibcitep}
+
+\let\oldcite=\cite                                                              
+\renewcommand{\cite}[1]{\textcolor{dblue}{\oldcite{#1}}}
+
+%\let\oldcitet=\citet                                                            
+%\renewcommand{\citet}[1]{\textcolor{dblue}{\oldcite{#1}}}
+
+
+\begin{document}
+\section{Introduction}
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}{Content}
+%\tableofcontents
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Motivation}
+	\begin{itemize}
+		\item Predicting asset returns is a popular exercise in finance
+		\pause
+		\item Evidence for predictability when accounting for model and estimation uncertainty: model averaging \cite{pettenuzzo2016}, time-varying-parameters \cite{dangl2012}, stochastic volatility and predictive distributions \cite{Johannes2014}
+		\pause
+		\item But: Linear models, limited set of lagged predictor variables
+		\pause
+		\item Evidence for (weak) rolling window serial correlation in return series
+	\end{itemize}
+\vspace{-0.4cm}
+\begin{figure}
+\centering\label{fig:rolcol}
+\includegraphics[width=0.7\linewidth]{rolcol}
+\end{figure}
+%		
+%		
+%		using dynamic model  
+%		
+%		\item In this work we build on models described in Chen and Fan (2006) and Bouye et al.
+%		(2002), however, instead of time-invariant copula we consider dynamic dependence structure.
+%		We argue, that even though nancial returns exhibit no auto-regressive behavior (in a
+%		classical sense), there is considerable amount of correlation (linear and rank) if we consider
+%		time-varying dependence. In other words, there is correlation present between log-returns
+%		and lagged log-returns and it is not constant.
+%		\item equity premium returns are predictable when using Evidence for return
+%		\item Return predictability is a stylized fact 
+%		\begin{itemize}
+%			\item \btext{\citet[][page 842]{Lettau2001}}: \textit{``It is now widely accepted that excess returns are predictable by variables such as dividend price ratios, earnings-price ratios, dividend-earnings ratios, and an assortment of other financial indicators.''}
+%			\item \cite{Johannes2014} report portfolio benefits only from using a model with time-varying coefficients, stochastic volatility model and that accounts for parameter uncertainty:
+%			\begin{align*}
+%			r_{t+1}&=\alpha+\beta_{t+1}x_t+\sqrt{V_{t+1}^r}\varepsilon_{t+1}^r\\
+%			\beta_{t+1}&=\alpha_{\beta}+\beta_{\beta}\beta_t+\sigma_{\beta}\varepsilon_{t+1}^{\beta},\quad\varepsilon_{t+1}^{\beta}\stackrel{iid}{\sim}\text{N}(0,1)\\
+%			x_{t+1}&=\alpha_x+\beta_xx_t+\sqrt{V_{t+1}^x}\varepsilon_{t+1}^x\\
+%			\log{V_{t+1}}&=\alpha_v+\beta_v\log{V_{t}}+\sigma_v\eta_{t+1}^v,\quad\eta_{t+1}^v\stackrel{iid}{\sim}\text{N}(0,1)
+%			\end{align*} 
+%			\item Volatility timing effect?
+%		\end{itemize}
+%	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}{Rolling window serial correlation in return series}
+%			\begin{itemize}
+%				\item (Weak) rolling window serial correlation in return series
+%			\begin{itemize}
+%				\item Rolling window has to be \textit{sufficiently} small
+%				\item Relation to momentum literature in finance
+%			\end{itemize}
+%		\end{itemize}
+%		\vspace{-0.4cm}
+%	\begin{figure}
+%		\centering\label{fig:rolcol}
+%		\includegraphics[width=0.9\linewidth]{rolcol}
+%	\end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{}
+\begin{itemize}
+	\item Idea: Model the temporal dependence between a univariate financial asset and its past by specifying 
+	\begin{enumerate}
+		\item[(i)] an invariant distribution $F$ and
+		\item[(ii)] a bivariate copula $C$ that characterizes the dependence between consecutive realizations and
+		\item[(iii)] that is governed by a time-varying copula parameter that can describe the dynamic auto-correlation in the asset returns.
+	\end{enumerate}
+	\item \cite{Chen2006}: In other words, model a univariate stationary discrete-time Markov chain for the return series
+\end{itemize}
+\begin{itemize}
+	\item[$\to$] Avoid additional variables
+	\item[$\to$] Model nonlinear dependence: A copula that exhibits tail dependence may generate a Markov chain which appears to become substantially more serially dependent as it draws towards the extremes of the state space.
+\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}{Conditional Means and conditional standard deviations}
+%	\begin{figure}
+%		\centering\label{fig:patton}
+%		\includegraphics[width=1\linewidth]{patton}
+%	\end{figure}
+%	\vspace{-0.5cm}
+%	\begin{itemize}
+%		\item Conditional mean $\pm$ conditional standard deviation for joint distribution with N(0,1) marginals and correlation coefficient 0.5
+%	\end{itemize}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Literature Review - Copulas for univariate time series}
+	\begin{itemize}
+		\item \cite{darsow1992}, \cite{ibragimov2008}, \cite{ibragimov2009}, \cite{Beare20010} explore the relationship between Markov processes and a copula function for univariate time series
+		\item \btext{\citet[][Chapter 8]{Joe1997}} studies Markov processes using parametric copulas with constant copula parameter and parametric marginals
+		\item \cite{Chen2006} and \cite{Chen2009} study univariate copula-based semi-parametric stationary Markov models, in which they use parameterized copulas empirical marginal distributions
+		\item \cite{Abegaz2008} propose a dynamic copula model for a Markov chain with a non-random ARMA-like specification for the evaluation of the Copula parameter
+		\item \cite{sokolinskiy2011} forecast daily volatility through a semi-parametric copula realized volatility model, but disregard forecasting power of a deterministic time-varying copula parameter	
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Contribution}
+	\begin{itemize}
+		\item We consider a\bbtext{time-varying stochastic copula} to model time-varying dependence between a single financial asset and its past. 
+		\item We show that \rbtext{daily returns} exhibit time-varying autoregressive behavior which is captured through the copula. 
+		\item The daily returns are standardized by\bbtext{realized volatility}.
+		\item The use of \rbtext{asymmetric copulas} enables us to capture asymmetric densities and non-linear dependencies within the return series. 
+		\item The copula parameter here follows a first order autoregressive process and is estimated using \bbtext{sequential Monte Carlo} techniques. 
+		\item We find that dynamic copulas produces \rbtext{better out-of-sample density forecasts} in terms of Bayes factors and log-predictive tail scores than benchmark models from the literature. 
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}{Copula - General concept}
+	\begin{itemize}
+		\item Let $X$ and $Y$ be two random variables with distribution functions $F(x)=P[X\leq x]$ and $G(y)=P[Y\leq y]$ and a joint distribution function $H(x,y)=P[X\leq x, Y\leq y]$. Then, according to a theorem by \cite{Sklar1959}, there exists a copula $C$ such that 
+		\begin{equation}
+		H(x,y) = C(F(x),G(y))
+		\end{equation}   
+		\item The copulas is defined on the unit hypercube $[0,1]^d$ where all univariate marginals are distributed as $\mathcal{U}(0,1)$.
+		\item Let $u=F(x)$ and $v=G(y)$ and $\theta$ is the copula parameter. The density of a bivariate copula is $c(u,v;\theta)=\partial^2 C(u,v;\theta)/\partial u \partial v$, whereas the density of the joint distribution is 
+		\begin{equation}
+		h(x,y)=c(F(x),G(y))\cdot f(x)\cdot g(y)
+		\end{equation}
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}{Copula - General concept}
+%	Copulas are very flexible in the sense that 
+%		\begin{itemize}
+%			\item marginal distributions can be modeled independently from the dependence structure
+%			\item they are able to capture asymmetric non-linear dependencies, as opposed to the standard multivariate distributions, such as Gaussian
+%		\end{itemize} 
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Methodology}
+
+\begin{frame}{Model and Estimation}
+	\begin{itemize}
+		\item Denote the asset return at time $t$ by $r_t$.
+		\item The joint density:
+		\begin{equation*}
+		h(r_t,r_{t-1}) = c(F(r_t), F(r_{t-1});\theta)f(r_t)f(r_{t-1}),
+		\end{equation*}
+		then, the conditional distribution of $r_t$ given $r_{t-1}$ (or $u_{t-1}$) is 
+		\begin{equation*}
+		f(r_t|r_{t-1}) =\frac{h(r_t,r_{t-1}) }{f(r_{t-1})} = c(F(r_t), F(r_{t-1});\theta)f(r_t) = c(u_t, u_{t-1};\theta)f(r_t)
+		\end{equation*}
+		such that $F(\cdot) = \Phi(\cdot)$ and $f(\cdot) = \phi(\cdot)$, cdf and pdf of standard Normal respectively.
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Parametric marginal distributions}\label{rv}
+	\begin{itemize}
+		\item Consider demeaned  log-returns (in \%) of some financial asset:
+		\begin{align*}
+		r_t = 100\times\left(\log \frac{P_t}{P_{t-1}}-\text{E}\left[\log \frac{P_t}{P_{t-1}}\right]\right),
+		\end{align*}
+		\pause
+		\item Let $RV_t$ as a realized \textit{ex post} volatility measure, obtained from 10-minute returns $RV_t = \sum_{i=1}^N \tilde{r}_{i,t}^2$, where $\tilde{r}_{i,t}$ is a 10-minute log-return %for day $t$ and $N$ is the number of 10-minute intervals in a trading day
+		\pause
+		\item Then, standardize demeaned returns via realized volatility measure: 
+		\begin{align*}
+		\hat{z}_t = r_t/\sqrt{RV_t},\:\:\:\text{such that}\:\:\:\hat{z}_t\stackrel{approx}{\sim}\mathcal{N}(0,1)\quad \hyperlink{sampling}{\beamergotobutton{QQ plot}}
+		\end{align*}
+		
+		\pause
+		\item Forecast $\log RV_t$ via AR(1) model
+		\pause
+		\item Complete model for the marginals:
+		\begin{align}
+		r_t &= \epsilon^{r}_t\sqrt{RV_t},\\
+		\log(RV_t) &= \mu^{RV}+\phi^{RV}\log(RV_{t-1})+\tau^{RV}\epsilon^{RV}_t,
+		\end{align}
+		such that $\epsilon^r_t$ and $\epsilon^{RV}_t$ are uncorrelated $\stackrel{iid}{\sim}\mathcal{N}(0,1)$
+\end{itemize}
+%	\vspace{-0.2cm}
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=0.8\linewidth]{rv}
+%	\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Copulas}
+	\begin{itemize}
+		\item We consider only one-parameter copulas, such as Gaussian, Gumbel (upper tail dependence) and Clayton (lower tail dependence)
+		\item \cite{Almeida2012}: Use Kendall's $\tau_{\kappa}=4\int\int_{I^2}C(u,v)d C(u,v)-1$ \citep[see][]{Nelsen2006} instead of $\theta$ in order to compare the dependence across different copulas 
+		\item In order to be able to compare the dependence across different copulas using Kendall's $\tau_{\kappa}$, we need to make sure it lies in the same domain for all copulas of interest
+		\item Therefore, consider double Gumbel ($c_{DG}$) and Clayton ($c_{DC}$) copulas, that are defined as follows:
+		%Note, that for Gaussian copula $\tau_{\kappa} \in [-1,1]$, however, for standard Gumbel and Clayton copulas $\tau_{\kappa} >0$. Therefore, instead of considering standard Gumbel ($c_G$) and Clayton ($c_C$), we  use 
+		\begin{align*}
+		c_{DC}(u,v;\theta)&=\begin{cases}
+		c_C(u,v;\theta) &\text{if }\theta\geq 0\\
+		c_C(1-u,v;-\theta) &\text{if }\theta<0\end{cases}\\
+		c_{DG}(u,v;\theta)&=\begin{cases}c_G(u,v;\theta+1) &\text{if } \theta\geq 0\\
+		c_G(1-u,v;-\theta+1) &\text{if }\theta<0\end{cases}
+		\end{align*}
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Time-varying Stochastic Copula}
+	\begin{itemize}
+		\item Following a two-step estimation approach, we first estimate the marginals and using probability integral transform obtain $u_t = \Phi(\hat{z}_t)$ and  $u_{t-1} =\Phi(\hat{z}_{t-1})$. Then, if the densities are specified correctly $u_t, u_{t-1}\stackrel{iid}{\sim}\mathcal{U}(0,1)$. 
+		\item Define the time-varying stochastic copula autoregressive model (SCAR) as follows \citep{Hafner2012}:
+		\begin{align} \notag
+		(u_t,u_{t-1})&\sim C\left((u_t,u_{t-1});\theta_t\right),\nonumber\\  \label{f:theta_ktau}
+		\theta_t&=f_{\tau}(x_t),\\ 
+		x_t&=\alpha+\phi x_{t-1}+\delta\eta_t, \:\: \eta_t\stackrel{iid}{\sim} \text{N}(0,1).\nonumber
+		\end{align}
+	\item $(u_t,u_{t-1})$ is a bivariate time series process that has a distribution function, defined here by a certain one-parameter copula. 
+	\item The stochastic process $x_t$, that is unobserved and follows Gaussian autogressive process of order one with parameters $\Theta = (\alpha,\phi,\delta)$. 
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Time-varying Stochastic Copula (cont.)}
+	\begin{itemize}
+		\item We model $x_t$ unconstrained and use $f_{\tau}$ to obtain $\theta_t$
+		\item As $f_{\tau}(x_t)$ in \eqref{f:theta_ktau} is a copula-specific function, using the inverse Fisher z-transformation on the Normally distributed unobserved state variable $x_t$ yields Kendall's $\tau_{\kappa} \in (-1,1)$:
+		\begin{equation*}
+		\tau_{\kappa t} = \frac{\exp\{2x_t-1\}}{\exp\{2x_t+1\}}.
+		\end{equation*}
+		\item Then transform the obtained $\tau_{\kappa}$ to a copula parameter and obtain a state-space representation of the SCAR model:
+%		\begin{align}\label{f:scar1}
+%		(u_t,u_{t-1})|x_t &\sim C\left((u_t,u_{t-1});\theta_t\right),\:\:\text{where}\:\:\theta_t = f_{\tau}(x_t),\\\label{f:scar2}
+%		x_t|\Theta, x_{t-1} &\sim \text{N}(x_t;\alpha+\phi x_{t-1},\delta^2).
+%		\end{align}
+		\begin{align}\label{f:scar1}
+		\notag
+		u_t& = \Phi(r_t/\sigma_t),\\
+		(u_t,u_{t-1})|x_t &\sim C\left((u_t,u_{t-1});\theta_t\right),\:\:\text{where}\:\:\theta_t = f_{\tau}(x_t),\\
+		x_t|\Theta, x_{t-1} &\sim \mathcal{N}(x_t;\alpha+\phi x_{t-1},\tau^2),\notag
+		\end{align}
+		\pause
+		\item The predictive conditional density for one-step-ahead returns, given the past transformed standardized returns $u_t = \Phi(r_t/\sqrt{\sigma^2_t})$, is:
+		{\footnotesize\begin{align*}
+			f(r_{t+1}|u_{t}) = \int\int c\left(\Phi\left(\frac{r_{t+1}}{\sqrt{\sigma^2_{t+1}}}\right),u_t|\theta_{t+1}(x_{t+1}), \sigma^2_{t+1}\right)f(r_{t+1}|\sigma^2_{t+1}) f(x_{t+1}) f(\sigma^2_{t+1}) dx_{t+1} d\sigma^2_{t+1}
+			\end{align*}}
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Copula Estimation - Algorithm and priors}
+	\begin{itemize}
+		\item Perform sequential estimation for the SCAR model
+		\item Use a modified version of Particle Learning of \cite{Carvalho2010}
+		\item Use the sufficient statistics of \cite{Storvik2002} to allow for parameter learning
+		\item Priors for copula parameters are chosen to be conditionally conjugate: $x_0\sim \mathcal{N}(c_0,C_0)$, 
+		$\delta^2 \sim \mathcal{IG} (b_0/{2},b_0\delta_0^2/{2})$, 
+		$\phi|\delta^2 \sim \mathcal{TN}(m_{\phi},V_{\phi}\delta^2)$ and  
+		$\alpha\sim \mathcal{N}(m_{\alpha},V_{\alpha})$. 
+		Here $\mathcal{TN}_{(a,b)}$
+		represents Normal distribution, truncated at $a$ and $b$, while $c_0$, $C_0$,  $b_0$,
+		$b_0\delta_0^2$, $m_{\phi}$, $V_{\phi}$, $m_{\alpha}$ and $V_{\alpha}$ are the hyper-parameters. 
+		\item Priors for RV parameters are chosen to be conditionally conjugate: $\tau^{2(RV)}\sim \mathcal{IG} (b^{(RV)}_0/{2},b_0\tau_0^{2(RV)}/{2})$, $\phi^{(RV)}|\tau^{2(RV)} \sim \mathcal{TN}_{(-1,1)}(m^{(RV)}_{\phi},V^{(RV)}_{\phi}\tau^{2(RV)})$, and $
+		\mu^{(RV)} \sim \mathcal{N}(m^{(RV)}_{\mu},V^{(RV)}_{\mu})$.
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sequential estimation for the SCAR model I}
+	\begin{itemize}
+		\item Estimate state-space model via particle filter for parameters in $\Theta$
+		\item Set of sufficient statistics $S_t$ contains all updated hyper-parameters as well as filtered state variables $x_t$
+		\item For $t=1\ldots,T$ and for each particle $(i)$  iterate through the following steps:
+	\end{itemize} 
+\begin{itemize}
+	\item[1.]\textbf{(Blind) Propagating:}\\ Sample new  hidden states $x_{t+1}$ from $x_{t+1}\sim p(x_{t+1}|x_t,\Theta)
+	$ and obtain $\theta_{t+1}$ deterministically.
+	\item[2.]\textbf{Resampling:}\\ Resample old particles (parameters, sufficient statistics, states) with weights $
+	\omega\propto p(u_{t+1},v_{t+1};\theta_{t+1})$ (proportional to the predictive density of $(v_{t+1},u_{t+1})$)
+	The components of $\Theta=(\alpha,\phi,\delta)$ have been simulated at the end of the previous period. The resampled particles are denoted by $\tilde{\Theta}$, for example.
+\end{itemize}  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sequential estimation for the SCAR model II}
+
+	\begin{itemize}
+	\item[3.]\textbf{Propagating sufficient statistics and learning $\Theta_c$:}
+		\begin{itemize}
+			\item[(3.1)]  Sample $\delta^2$ from $\text{IG}(\delta^2; b_0^{\star}/2,b_0^{\star}\delta_0^{2\star}/2)$, where
+			$$
+			b_0^{\star}=\tilde{b}_0+1\:\:\:\text{and}\:\:\:b_0^{\star}\delta_0^{2\star} = \tilde{b}_0\tilde{\delta}_0^2+\frac{(\tilde{m}_{\phi}\tilde{x}_{t}-(\tilde{x}_{t+1}-\tilde{\alpha}))^2}{1+\tilde{V}_{\phi}\tilde{x}_{t}^2}.\:\:
+			$$
+			\item[(3.2)] Sample $\phi$ from $\text{N}(\phi; m_{\phi}^{\star},V_{\phi}^{\star}\delta^2)$, where
+			$$
+			m_{\phi}^{\star}=\frac{\tilde{m}_{\phi}+\tilde{V}_{\phi}\tilde{x}_{t}(\tilde{x}_{t+1}-\tilde{\alpha})}{1+\tilde{V}_{\phi}\tilde{x}_{t}^2}\:\:\text{and}\:\:\:V_{\phi}^{\star} = \frac{\tilde{V}_{\phi}}{1+\tilde{V}_{\phi}\tilde{x}_{t}^2}.
+			$$
+			\item[(3.3)] Sample $\alpha$ from $\text{N}(\alpha; m_{\alpha}^{\star},V_{\alpha}^{\star})$, where
+			$$
+			m_{\alpha}^{\star} = \frac{\tilde{m}_{\alpha}\tau^2+\tilde{V}_{\alpha}(\tilde{x}_{t+1}-\phi\tilde{x}_{t})}{\delta^2+\tilde{V}_{\alpha}}\:\:\text{and}\:\:\:V_{\alpha}^{\star} = \frac{\delta^2 \tilde{V}_{\alpha}}{\delta^2+\tilde{V}_{\alpha}}.
+			$$
+		\end{itemize}
+	\vspace{0.3cm}
+	\item[4.]\textbf{Propagating sufficient statistics and learning $\Theta_v$:} as in 3. just for $\tau^{2(RV)}$, $\phi^{(RV)}$, and $
+	\mu^{(RV)}$
+	\end{itemize}  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Empirical Results}
+
+\begin{frame}{Data and Set-up}
+	\begin{itemize}
+		\item Five US stocks from different industries: BA, IBM, JNJ, WMT, XOM 
+		\item Daily observations from 01/01/2001 - 31/12/2015
+		\item One-step ahead predictions
+		\item Competing models:
+		\begin{enumerate}
+			\item Normal copula model
+			\item Double Clayton copula model
+			\item Double Gumbel copula model
+			\item Zero mean model standardized with realized volatility
+			\item Zero mean model standardized with stochastic volatility
+			\item Static mean model (predictor: dividend yield) standardized with realized volatility
+			\item Time-varying mean model (dividend yield) standardized with realized volatility
+		\end{enumerate}
+		\item (Preliminary) evaluation: Sequential predictive log-Bayes factors, LPTS
+		
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Evaluation - Average Log-Predictive Score (LPS)}
+	\begin{itemize}
+		\item Use average log-predictive score (LPS) and average log-predictive tail score (LPTS$_{\alpha}$) to compare the performance of the models:
+		\begin{align*}
+		\text{LPS}&=-\frac{1}{T} \sum\limits_{t=1}^T \log p(r_t|r^{t-1})\\
+		\text{LPTS}_{\alpha}&=-\frac{1}{\sum\limits_{t=1}^T \mathbf{1}\{r_t>z_{\alpha}\}}\sum\limits_{t=1}^T\mathbf{1}\{r_t>z_{\alpha}\}\log p(r_t|r^{t-1}),
+		\end{align*} 
+		where $z_{\alpha}$ is the upper $100\cdot\alpha$ percentile of the empirical distribution of $r_t$. 
+		
+		\item Note that the LPTS$_{\alpha}$ is not a proper scoring rule, however, it can be very useful for understanding how the model performs in the tails.
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Results for IBM I}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{IBM_plot}
+	\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Results for IBM II}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{IBM1}
+	\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Results for IBM III}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{IBM2}
+	\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Results for IBM IV}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{IBM4}
+	\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Results for IBM V}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{IBM3}
+	\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Results for IBM VI}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{IBM_LPTS01}
+	\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Results for IBM VII}
+	\begin{figure}
+		\centering
+		\includegraphics[width=1\linewidth]{IBM_LPTS05}
+	\end{figure}
+\end{frame}
+%
+%\begin{frame}{Summary}
+%\begin{enumerate}
+%	\item All copula based models outperform the linear benchmark models at all times. This holds in terms of Bayes factors, but also in terms of log-predictive tail scores.
+%	\item The Clayton copula dominates the Gausian and Gumbel copula. It accounts especially for lower-tail dependence. This contributes to the fact that financial returns are often left-skewed.
+%	\item Using realized volatilities to standardize returns instead of stochastic volatilities is beneficial for all assets.
+%	\item Models 6 and 7 also include exogenous variable: dividend yield. However, we do not find sufficient evidence that dividend yield is beneficial for return prediction, neither with static, nor with time-varying coefficient. This results contradicts the findings in \cite{Johannes2014}, however, this might be due to the fact that they used monthly data, where dividend yield is much more important return predictor as compared to daily data.	
+%	
+%\end{enumerate}
+%
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}{Results for JPM I}
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=0.9\linewidth]{JPM_plot}
+%	\end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}{Results for JPM II}
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=1\linewidth]{JPM1}
+%	\end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}{Results for JPM III}
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=1\linewidth]{JPM_LPTS01}
+%	\end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}{Results for JPM IV}
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=1\linewidth]{JPM_LPTS05}
+%	\end{figure}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusions}
+\begin{frame}{Conclusions and Outlook}
+	\begin{itemize}
+		\item We model a time-varying stochastic copula to model time-varying dependence between a single financial asset and its past standardized by its realized volatility
+		\item Model seems to outperform common benchmark models in terms of Bayes factor and log-predictive tail scores
+		\item We do not find sufficient evidence that dividend yield is beneficial for return prediction, neither with static, nor with time-varying coefficient. %This results contradicts the findings in \cite{Johannes2014}, however, this might be due to the fact that they used monthly data	
+	\end{itemize}
+\pause
+	\textbf{Outlook}
+	\begin{itemize}
+		\item HAR model for forecasting RV for a longer horizons
+		\item Applications: Value-at-Risk 
+		\item Extension: Multivariate copula modeling of marginal predictive distributions $\to$ portfolio application
+	\end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{References}
+	\fontsize{5.5}{1}\selectfont{
+		\setlength{\bibsep}{1\baselineskip}
+		\bibliographystyle{ecta}
+		\bibliography{./refs}}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+
+\begin{frame}[plain]{Standardized returns by realized volatilities}\label{sampling}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\linewidth]{rv}
+	\end{figure}
+
+\hyperlink{rv}{\beamergotobutton{Go back}}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{framenumber}{\value{finalframe}}
+
+\end{document}

@@ -1,0 +1,272 @@
+\subsection{Prediction model}
+In this study we follow the literature and use vector autoregressions (VARs) to model the relationship between asset returns and predictor variables. Extending the VAR given in equation (\ref{eqn:ks1987}) - (\ref{eqn:ks1987_2}) to a system with $K$ predictors reads as follows:
+\begin{align}\label{eqn:varp}
+\begin{bmatrix}r_t\\x_t\end{bmatrix}=a+\sum_{i=1}^pA_i\begin{bmatrix}r_{t-i}\\x_{t-i}\end{bmatrix}+\varepsilon_t,\quad t=1,\ldots,T,	
+\end{align}
+where $r_t$ is the excess return of a particular stock, $x_t=[x_{1,t},\ldots,x_{K,t}]'$ is a $K\times1$ vector of predictor variables and $\varepsilon_t\stackrel{iid}{\sim}\No{0,\Sigma}$.\\
+%
+\indent The number of parameters in the system in (\ref{eqn:varp}) grows quickly with the number of included predictor variables. We therefore focus on two restrictions to reduce estimation noise. Since every VAR(p) system can be written in VAR(1) companion form, we restrict $p=1$. %Second, in (\ref{eqn:ks1987}) - (\ref{eqn:ks1987_2}) the excess return depends only on the lagged predictor variable and the predictor variable also only depends on its own lag but not on the lagged excess return. 
+Second, in (\ref{eqn:ks1987}) - (\ref{eqn:ks1987_2}) both, the excess return and the predictor variable, only depend on their own lag, but not on the lag of the other variable. We follow this and restrict the system such that $r_t$ depends on the entire $x_{t-1}$ vector but $x_{k,t}$, $1\leq k\leq K$, only depends on its own lag $x_{k,t-1}$. Compactly, the resulting model is of the form
+\begin{equation}\label{eqn:var1}
+y_t=(r_t,x_t)'=a+A_1y_{t-1}+\varepsilon_t,
+\end{equation}
+%where $a=(a_r,a_{x_1},\ldots,a_{x_K})'$ and $A_1=\begin{pmatrix} 0 & A_{r,1}& A_{r,2}&\cdots  & A_{r,K} \\0 & A_{x_1} &0& \cdots & 0\\ \vdots&\ddots&A_{x_2}&\ddots& \vdots\\\vdots&&\ddots&\ddots&0\\0&\cdots&\cdots&0&A_{x_K}\end{pmatrix}$.
+where $a=(a_r,a_{x_1},\ldots,a_{x_K})'$ and $A_1=\begin{pmatrix} 0 & A_1^{1,2}& A_1^{1,3}&\cdots  & A_1^{1,K+1}\\0 & A_1^{2,2} &0& \cdots & 0\\ \vdots&\ddots&A_1^{3,3}&\ddots& \vdots\\\vdots&&\ddots&\ddots&0\\0&\cdots&\cdots&0&A_1^{K+1,K+1}\end{pmatrix}$. The zero restriction follows from (\ref{eqn:ks1987}) - (\ref{eqn:ks1987_2}) using multiple predictor variables. Usually, the correlation between the return and its first lag is very low, supporting the restriction $A_1^{1,1}=0$. All other variables are supposed to follow an autoregressive process of order 1. To implement these restrictions \textit{softly} on the slope coefficient matrix $A_1$%, in the sense that we still let the data to formalize them through the likelihood function, 
+we use a variant of the Minnesota prior \citep{doan1984}. Further specifying independent marginal normal priors for each parameter yields the joint prior distribution through multiplication of the independent marginals. That is
+\begin{align}\label{eqn:priora}
+	p(a)&\sim\No{0,\zeta\times\text{I}_{(K+1\times K+1)}},\\\label{eqn:priorA11}
+	p(A_1^{1,1}) &\sim \No{0,\varrho\times1},\\\label{eqn:priorA1k}
+	p(A_1^{1,k}) &\sim \No{0,\zeta\times \frac{\sigma_r^2}{\sigma_{x_k}^2}},\quad k=1,\ldots,K\\\label{eqn:priorAk1}
+	p(A_1^{k,1}) &\sim \No{0,\varrho\times \frac{\sigma_{x_k}^2}{\sigma_{r}^2}},\quad k=2,\ldots,K,\\\label{eqn:priorAkl}
+	p(A_1^{k,l}) &\sim \No{\underline{A}_1^{k,l},\varrho\times \frac{\sigma_{x_k}^2}{\sigma_{x_l}^2}},\quad k=2,\ldots,K,\quad l=2,\ldots,K\\
+%	p(A_{r,k}) &\sim \No{0,\xi\times \frac{\sigma_r^2}{\sigma_{x_k}^2}},\quad k=1,\ldots,K\\
+%	p(A_{x_k,l}) &\sim \No{\underline{A}_{x_k,l},\lambda\times \frac{\sigma_{x_k}^2}{\sigma_{x_l}^2}},\quad k=1,\ldots,K
+%	p(A_i^{k,l}) &\sim \No{\underline{A}_i^{k,l}}{\lambda^2/i^2 \cdot \sigma_k^2/\sigma_l^2}, \nonumber \\	
+	&  \quad\,\,\text{with } \underline{A}_1^{k,l} = d_k \text{ if $k=l$, and $\underline{A}_1^{k,l} = 0$ otherwise.} \nonumber
+\end{align}
+Following \cite{frey2015}, we set $d_k=0$ for each real variable, and $d_k=0.8$ for the nominal variables. Further we fix $\varrho=10^{-4}$ and $\zeta=0.2$, a common choice for the tightness parameter of the Minnesota prior in the Bayesian VAR forecasting literature according to \cite{carriero2015}. Note that the prior in (\ref{eqn:priorA1k}) is centered around zero implying no predictability. Finally, the ratios $\sigma_{x_k}^2\big/\sigma_{r}^2$ $\forall k$ and $\sigma_{x_k}^2\big/\sigma_{x_l}^2$ $\forall k,l$ account for differences in the scale and variability of the different predictor variables. $\sigma_{x_k}^2$ $\forall k$ and also $\sigma_{r}^2$ are approximated by the residual variances of an AR(1) regression for k-th variable and the asset return. The specification is completed by assuming an independent diffuse prior for $\Sigma, \ p(\Sigma) \propto | \Sigma|^{-2(2M+1)/2}$.\footnote{Posterior results for the full model are obtained in a standard fashion and are omitted here for parsimony.The interested reader is referred to \cite{koop2010}.}
+
+\subsubsection{Time-varying Bayesian VAR and stochastic volatility (TVP-BVAR with SV)}\label{subsubsec:tvp}
+The literature provides various examples favoring equity prediction models with time-varying parameters (TVP) \citep{dangl2012}, stochastic volatility (SV) \citep{johannes2014} and Bayesian model averaging techniques \citep{pettenuzzo2016}. To evaluate the predictive performance, for example marginal likelihoods for individual models have to be easily available without great computational costs at each point of the forecasting period. While this may be so for simple constant parameter models through the use of conjugate priors, they are almost infeasible to obtain for large VAR models such as given in (\ref{eqn:varp}) with many parameters. The latter require informative priors to reduce estimation noise which rely on Markov Chain Monte Carlo (MCMC) methods for estimation at each point in time  with typical tens of thousands of simulation draws to ensure convergence.\\ 
+%
+\indent The same is true for time-varying parameter models with stochastic volatility that not only require Kalman filtering for the regression coefficients but also computational costly sampling methods for the error term variances. To overcome the computational burden that arises in a recursive forecasting exercise, we adopt the so-called \textit{forgetting factors} approach of \cite{koop2013} which also allows for all the features to model return predictability: Time-varying parameters, stochastic volatility, parameter shrinkage as well as dynamic model averaging and variable selection. Forgetting factors are used in state space models to allow for a moderate variation of the predictive variance over time. Let us consider a time-varying VAR version of (\ref{eqn:var1}) with stochastic volatility which can be expressed as follows:
+\begin{align}\label{eqn:tvpvar1}
+y_t&=a_t+A_{1,t}\,y_{t-1}+\varepsilon_t,\\
+A_t&=\phi A_{t-1}+(1-\phi)\underline{A}_0+u_t,\label{eqn:tvpvar2}
+\end{align}
+where $A_t=[a_t\,\,\, A_{1,t}]$ is time-indexed for every parameter, $\varepsilon_t\stackrel{iid}{\sim}\No{0,\Sigma_t}$, $u_t\stackrel{iid}{\sim}\No{0,\Omega_t}$ and $\varepsilon_t$ and $u_s$ are independent of each other for all $t$ and $s$. Here, $\phi$ is an unknown parameter governing the mean of $A_t$. While $\phi=1$ implies a random walk behavior, $\phi=0$ implies a random behavior of each $A_t$ around $\underline{A}_0$. Here, we will use the means of the Minnesota prior described in the previous section to specify $\underline{A}_0$. Since $\phi$ adds another layer to the prediction model, the restrictions imposed on the coefficient matrix are relaxed compared to the constant coefficient model.\\
+%
+%We note that (\ref{eqn:tvpvar1}) is a random walk specification that can drift in extreme directions. %However following \citep{dangl2012}, this specification outperforms autoregressive models due to its parsimony avoiding estimation errors. 
+\indent Typically, the estimation of the system (\ref{eqn:tvpvar1}) - (\ref{eqn:tvpvar2}) relies on MCMC techniques. Given the initial conditions $A_0$, $\Sigma_0$ and $\Omega_0$, it involves drawing $A_t$ conditional on $\Sigma_t$ and $\Omega_t$ (e.g. through a Kalman filter), then drawing $\Sigma_t$ conditional on $A_t$ and $\Omega_t$, the sampling $\Omega_t$ given $A_t$ and $\Sigma_t$ and eventually drawing further parameters given conditional on $A_t$, $\Sigma_t$, and $\Omega_t$ for all $t$. This is computationally demanding as it involves simulating $\Sigma_t$, and $\Omega_t$ for every $t=1,\ldots,T$. %\footnote{Of course there can even be further blocks of parameters in the MCMC, but these three are essential for the TVP model with stochastic volatility considered here.} 
+The idea of the forgetting factors here is to avoid simulating $\Omega_t$ recursively for each $t$. Instead, we avoid using $\Omega_t$ in the Kalman filter by approximating the one-step ahead predictor variance of $A_t|y^{t-1}\sim\No{A_{t|t-1},P_{t|t-1}}$, i.e. $P_{t|t-1}$, %in the Kalman-filter estimation of the state-space model (\ref{eqn:tvpvar1}) - (\ref{eqn:tvpvar2}) 
+by the variance of the filtered estimator $A_{t-1}|y^{t-1}\sim\No{A_{t-1|t-1},P_{t-1|t-1}}$, i.e. $P_{t-1|t-1}$, divided by a \textit{forgetting factor} $\lambda\in[0,1]$. That is $P_{t|t-1}=P_{t-1|t-1}\big/\lambda$.\footnote{For textbook explanations of the Kalman filtering technique the reader is referred to for example \cite{durbin2012}.} Then, $\Omega_t$ is approximated by $(\lambda^{-1}-1)P_{t-1|t-1}$. From this we can see that $\lambda=1$ implies a constant coefficient model.  Eventually, $\Sigma_t$ is estimated recursively through an exponential weighted moving average using a decay factor $\kappa$ between $\hat{\Sigma}_{t-1}$ and the variance-covariance matrix of filtered Kalman residuals, i.e. $\hat{\Sigma}_t=\kappa\hat{\Sigma}_{t-1}+(1-\kappa)\hat{\varepsilon}_t\hat{\varepsilon}_t'$, where $\hat{\varepsilon}_t=y_t-A_{t|t}[1\,\,y_{t-1}]$ is obtained in the Kalman filter.\footnote{The details of the estimation of the model can be found in the Appendix \ref{app:est}.}\\
+%
+\indent The specification of the model involves a set of parameters, namely $\lambda$, $\kappa$ and $\phi$, that have to be defined by the prior, either through an hierarchical hyperprior, an empirical Bayes estimator or a search over a grid of possible values. Here, we estimate the model for every parameter combination over a grid and then choose the model with the highest predictive density over the recent past. We also consider an average over all models with different hyperparameter values.\\
+%
+\indent Similar to \cite{koop2013}, the \textit{dynamic model selection and averaging} technique is performed over different priors and not different sets of predictor variables. The idea follows \cite{raftery2010}. In particular, the weights for model $j$, which comes from the j-th combination of $\lambda$, $\kappa$ and $\phi$, at time $t$ using all the information up to $t-1$ are given by
+\begin{align}
+	\omega_{t|t-1,j}&=\omega_{t-1|t-1,j}^{\alpha}\Big/\sum_{j=1}^J\omega_{t-1|t-1,j}^{\alpha},\text{ and}\\
+	\omega_{t|t,j}&=\omega_{t|t-1,j}p_j(y_t|y^{t-1})\Big/\sum_{j=1}^J\omega_{t|t-1,j}p_j(y_t|y^{t-1}),
+\end{align}
+where $p_j(y_t|y^{t-1})$ is the predictive likelihood of model $j$ evaluated at $y_t$ and $\alpha=0.99$ is a decay factor governing the weighting of past observations. For monthly data, this value implies that the observations from about two years ago only receive approximately 80 percent of the weight of the observation in $t-1$. We note that dynamic model weights imply a different treatment of every model in each period leading to different averaging results and also may lead to a different forecasting model selection in each period. Following \cite{koop2013}, we perform model averaging %across models with different predictor variables and 
+across different prior parameter values. That is, $\lambda\in\{0.97, 0.98.0.99, 1\}$, $\kappa\in\{0.94, 0.96.0.98\}$ and $\phi\in\{0,0.5,0.75,1\}$. This results in 48 models based on different model parameters from which we either select the best performing one or average across all of them.% In the following, we will also do model selection across different predictor variables. In particular, we will choose between a small system including only the five most relevant predictors and a system including all predictors, based only on the univariate predictive distribution of the asset returns.
+\footnote{The reader is referred to \cite{koop2013} for more details about the forecasting set-up and model selection.}\\
+%
+\indent Eventually, we are interested in the marginal predictive distribution of the asset return $r_t$. This is a main advantage of the Bayesian approach \citep{klein1976,barberis2000}. The predictive distribution is obtained from the joint predictive density function of $r_{t+1}$ and $\Theta_t=\left[A_t,\Sigma_t,\Omega_t\right]$ by integrating over all values of $\Theta_t$. This is 
+\begin{equation}
+\label{eqn:pred1}
+f(r_{t+1}|y^t)=\int f(r_{t+1},\Theta_t|y^t)\,d\Theta_t=\int f(r_{t+1}|y^t,\Theta_t)p(\Theta_t|y^t)\,d\Theta_t,
+\end{equation}
+where $y^t=\{y_1,\ldots,y_t\}$ is the collection of all past observations used for estimation. This function is independent of the unknown parameters and is in fact something like the average over all possible values for $\Theta_t$. Numerically, it is obtained by simulating $I$ draws from the posterior distribution and making a prediction $\hat{r}_{t+1}$ for every posterior draw. %The use of predictive distribution of the asset return $r_t$ is an integral part of a Bayesian investor \citep{klein1976,barberis2000}.
+%\subsubsection*{Predictive distribution}
+%Integrating out parameter uncertainty to obtain a predictive return density is an integral part of a Bayesian investor \citep{klein1976,barberis2000}. The marginal predictive density of $r_t$ is obtained from the joint predictive density function of $r_{T+1}$ and $\Theta=\left[a,A_1,\Sigma\right]$ by integrating over all values of $\Theta$. This is 
+%\begin{equation}
+%\label{eqn:pred1}
+%f(r_{t+1}|y^t)=\int f(r_{t+1}|y^t,\Theta)p(\Theta|y^t)\,d\Theta.
+%\end{equation}
+%This function is independent of the unknown parameters and is in fact something like the average over all possible values for $\Theta$. Numerically, this is achieved by evaluating the likelihood function at every predicted value from an MCMC sample.
+
+
+
+%
+
+%\begin{align}
+%	\Rightarrow z_{T+1}&=\alpha+B_0z_T+\varepsilon_{T+1}\nonumber\\
+%	z_{T+2}&=\alpha+B_0\mu+B-0^2z_T+B_0\varepsilon_{T+1}\varepsilon_{T+2}\nonumber\\
+%	&\,\,\,\vdots\nonumber\\
+%	\vspace{-0.9cm}
+%	z_{T+h}&=\sum_{i=0}^{h-1}B_0^i\alpha+B_0^hz_T+\sum_{i=0}^{h-1}B_0^i\varepsilon_{T+h-i}.
+%\end{align}
+%Then  using the results of \citet[Appendix A]{avramov2002}, his argument for continuously compounded returns is that the predictive distribution of $Z_{T+h}=z_{T+1}+\ldots,z_{T+h}$ conditional on $\mathcal{Y}_T$ and the set of parameters of the Bayesian VAR model $\Theta$ is given by 
+%\begin{align}
+%	p(Z_{T+h}|\mathcal{Y}_T,\Theta)&\sim\mathcal{N}({\mu}_{T+h},{\Sigma}_{T+h})\\
+%	\text{with}\quad{\mu}_{T+h}&=\mu\sum_{i=0}^{h-1}(h-i)B_0^i+z_T\sum_{i=1}^hB_0^i\\
+%	\text{and}\quad{\Sigma}_{T+h}&=\Sigma+(I+B_0)\Sigma(I+B_0)+\cdots\nonumber\\
+%	&+(I+B_0+B_0^2+\cdots+B_0^{h-1})\Sigma(I+B_0+B_0^2+\cdots+B_0^{h-1}).
+%\end{align}
+%The common prediction model used in the literature relates the excess stock return, $r_{t+1}$, linearly to the lagged predictor variables, $x_t'$:
+%\begin{equation}
+%r_{t+1}=x_t'\beta+\varepsilon_{t+1},\quad t=1,\ldots,T
+%\end{equation}
+%with $\varepsilon_{t+1}\stackrel{iid}{\sim}\No{0,\sigma^2}$ and $x_t$ is a $k\times1$ vector of predictors. This model is estimable as long as $k$ is smaller than the sample size $T$. As pointed out by \cite{pettenuzzo2016}, model and parameter uncertainty leads to unsatisfactory prediction results. 
+
+
+%{Posterior Estimation Of The VAR-Matrix B}
+%\begin{itemize}
+%	\item Use independent Normal-Wishart prior, that is $\text{vec}(B)=\beta\sim\mathcal{N}(b_0,V_0)$ and $\Sigma\sim\mathcal{IW}(S_0,\nu_0)$
+%	\item Then, the conditional posterior distributions are given by
+%	\begin{eqnarray}
+%	\label{eqn:gib}
+%	\beta|\Sigma,Y\sim\mathcal{N}(b_1,V_1)\,\text{ and } \Sigma|B,Y\sim\mathcal{IW}(S_1,\nu_1),
+%	\end{eqnarray}
+%	with the posterior moments or hyperparameters as 
+%	\begin{eqnarray*}
+%		V_1&=&\left(V_0^{-1}+Z'\left(\Sigma^{-1}\otimes \text{I}\right)Z\right)^{-1}\\
+%		b_1&=& V_1\left(V_0^{-1}b_0+Z'\left(\Sigma^{-1}\otimes \text{I}\right)\text{vec}(Y)\right)\\
+%		S_1&=& S_0+(Y-XB)'(Y-XB)\\
+%		\nu_1&=&\nu_0+T,
+%	\end{eqnarray*}
+%	where $Z=\left(\text{I}\otimes X\right)$ and $\text{I}$ is the identity matrix.
+%	\item Gibbs Sampler between (\ref{eqn:gib}) to obtain posterior draws
+%\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%{Sampling From The Predictive Distribution}
+%\begin{itemize}
+%	\item Then conditional on $\mu$, $B$, $\Sigma$, $Y_{T+h}=Y_{T+1}+\cdots+Y_{T+h-1}$ is normally distributed with the following moments:
+%	\begin{align}
+%	\mu_{all}=&\mu\sum_{i=0}^{h-1}(h-i)B_0^i+Y_T\sum_{i=1}^hB_0^i\\
+%	\Sigma_{all}=&\Sigma+(I+B_0)\Sigma(I+B_0)+\cdots\\
+%	&+(I+B_0+B_0^2+\cdots+B_0^{h-1})\Sigma(I+B_0+B_0^2+\cdots+B_0^{h-1}) \nonumber
+%	\end{align}
+%	\item Draw M times from these predictive distribution and obtain the sample, which is then used to calculate the expected utility integral.
+%\end{itemize}
+%
+%
+%\subsection{Predictive Distribution}
+%Since portfolio selection is concerned with upcoming asset realizations and hence with the future, the investor needs the \emph{predictive} return distribution for the coming investment periods, which is only conditional on the current information $y^T$ and not on the parameter vector $\Theta$. In general, he is concerned with $y_{T+h}$, where $h$ is the number of investment periods. It is obtained in two steps. First, the posterior from equation (\ref{eqn:prop}) is multiplied by the likelihood function for the future observations. Mathematically, this is
+%\begin{equation}
+%f(y_{T+h},\Theta|y^T)=f(y_{T+h}|y^T,\Theta)p(\Theta|y^T),
+%\end{equation}
+%where $y^T$ includes all observation up to $T$. This joint density function of $y_{T+h}$ and $\Theta$ is transformed to the predictive density of $y_{T+h}$ by integrating over all values of $\Theta$. This is 
+%\begin{equation}
+%\label{eqn:pred1}
+%f(y_{T+h}|y^T)=\int_{\mathbb{R}^N}f(y_{T+h}|y^T,\Theta)p(\Theta|\mathbb{Y}_T)\,d\Theta.
+%\end{equation}
+%This function is independent of the unknown parameter vector $\Theta$. In fact, it is something like the average over all possible values for $\Theta$ and hence it accounts for parameter uncertainty. The same formula of the predictive distribution can also be obtained by following \citet[page 71]{koop2007} and we reformulate equation (\ref{eqn:pred1}) to
+%\begin{align}
+%	f(y_{T+h}|y^T)&=\frac{f(y_{T+h},y^T)}{f(y^T)}=\int_{\mathbb{R}^N}\frac{f(y_{T+h},y^T,\Theta)}{f(y^T)}\,d\Theta\nonumber\\
+%	&\stackrel{(*)}{=}\int_{\mathbb{R}^N}f(y_{T+h}|y^T,\Theta)\underbrace{\left(\frac{f(y^T|\Theta)p(\Theta)}{f(y^T)}\right)}_{p(\Theta|y^T)}\,d\Theta=E_{\Theta|y^T}\left[f(y_{T+h}|\Theta,y^T)\right],
+%\end{align}
+%where $(*)$ comes from rewriting Bayes' theorem. This means that the predictive distribution is nothing else but the posterior expectation of $f(y_{T+h}|\Theta,y^T)$.
+
+
+
+%Additional non-sample information can also be included by means of entropic tilting. The idea is to modify a baseline distribution, for example a predictive return distribution, such that it matches certain moment conditions. Such moment restrictions can be formed based on theoretical reasoning models but also on non-sample information \citep[e.g.][]{krueger2015}. 
+
+\subsection{Entropic tilting}
+In addition to traditional point forecasts, the recent literature has considered probabilistic (or ``density'') forecasts of macroeconomic and financial variables. In contrast to point forecasts, the latter provide information on various possible scenarios and thus quantify the uncertainty surrounding the future. %Density forecasts have long been used in meteorology \citep[e.g][]{murphy1984} and are becoming increasingly popular in empirical economic research. 
+In the Bayesian methodology, predictive distributions for the variables of interest are easily obtained by integrating out the parameter uncertainty from the likelihood function (evaluated at a future (predicted) realization) times the posterior distribution.\\
+%
+\indent Similar to point forecasts, density forecasts can also be combined to form a merged model that upholds the strengths of each of its components. This can be achieved for example by mixing two densities or by reweighting a forecasted density according to another model; ensuring that the new mixture model is well defined. Entropic tilting is a non-parametric method to combine time-series model forecasts with information from other origins. We now explain the method in more detail.\\
+%
+\indent Suppose at time $t$ we want to make a forecast $h$ periods ahead for a $N\times1$ vector of interest $r_{t+h}$, in our case a vector of out-of-sample excess stock returns. Denote by $f_{t,h}:=\{r_{t+h,i}\}_{i=1}^I$, where $r_{t+h}\in\mathbb{R}^N$ and $N\geq 1$, a baseline sample from the predictive return distribution $p(r_{t+h}|r^t)$, i.e. a discrete sample of $I$ (MCMC) draws of the $h$-step ahead forecasts. These draws can either come from a closed-from analytical expression of the predictive density $f_{t,h}$ or might be simulated. It also may depend on estimated parameters.\\
+%
+\indent We now want to incorporate additional information about the return $r_{t+h}$, which was not used to generate the base sample, in the form of $M$ moment conditions on the function $g(r_{t+h}):\mathbb{R}^N\to\mathbb{R}^M$  in the following sense:
+\begin{equation}\label{eqn:gmom}
+	\mathbb{E}\left[g(r_{t+h})\right]=\bar{g}_t,
+\end{equation}
+where $\bar{g}_t\in \mathbb{R}^M$ and $M,N\geq1$. For example $g(r_{t+h})=r_{t+h}$ imposes that the mean of $r_{t+h}$ is equal to $\bar{g}_t$ and $g(r_{t+h})=\left(r_{t+h}-\mathbb{E}\left(r_{t+h}\right)\right)^2$ sets the variance equal to it. $\bar{g}_t$ can be formed from various origins: \cite{giacomini2014} use an Euler equation to specify $\bar{g}_t$, \cite{altavilla2014,krueger2015} use survey forecasts and \cite{metaxoglou2016} adopt option-implied information for $\bar{g}_t$.\\
+%
+\indent In general under the base density $f_{t,h}$, the moments of $g(r_{t+h})$ are not equal to $\bar{g}_t$:
+\begin{equation}\label{eqn:expf}
+	\mathbb{E}_{f_{t,h}}\left[g(r_{t+h})\right]=\int g(r_{t+h})f_{t,h}(r_{t+h})\,dr_{t+h}\neq\bar{g}_t.
+\end{equation}
+Instead, entropic tilting describes finding the density $\tilde{f}_{t,h}$ out of the set of densities that fulfill the moment condition in (\ref{eqn:gmom}) that is closest to the base density in terms of the Kullback-Leibler divergence measure. This is formalized in the following proposition.
+\begin{prop}
+	If a solution $\tilde{f}_{t,h}(r)$ to the constrained minimization 
+	\begin{align}\label{eqn:klic}
+	\min_{\tilde{f}_{t,h}\in\mathcal{F}}\mathbb{E}_{\tilde{f}_{t,h}}\left[\log\frac{\tilde{f}_{t,h}(r)}{f_{t,h}(r)}\right]&=\int \log\frac{\tilde{f}_{t,h}(r)}{f_{t,h}(r)} \tilde{f}_{t,h}(r)\,dr,\\
+	\text{s.t. }\mathbb{E}_{\tilde{f}_{t,h}}\left[g(r)\right]&=\int g(r)\tilde{f}_{t,h}(r)\,dr=\bar{g}_t,\label{eqn:klic2}
+	\end{align}
+	exists, then it is unique and it is given by
+	\begin{align}\label{eqn:ftilde}
+	\tilde{f}_{t,h}^*(r)&=f_{t,h}(r)\exp\left(\gamma_{t,h}^{*'}g(r)\right)\Big/\int\exp\left(\gamma_{t,h}^{*'}g(r)\right)f_{t,h}(r)\,dr,\\
+	\gamma_{t,h}^{*}&=\argmin{\gamma_{t,h}}\int f_{t,h}(r)\exp\left(\gamma_{t,h}'(g(r)-\bar{g}_t)\right)dr.\label{eqn:gams}
+	\end{align}
+\end{prop} 
+\begin{proof}
+	The proof is given in \cite{giacomini2014} Proposition 1 on page 147.
+\end{proof}
+While $\tilde{f}_{t,h}^*(r)$ is generally not of a known form, the entropic tilting problem can also be interpreted as finding a new sets of weights $\pi_{t,h}^*$ in $t$ for the base $h$-step ahead density $f_{t,h}(r)$ that satisfy the moment condition. For a sample of $I$ draws from the base predictive density, the expectation in (\ref{eqn:klic}) is 
+\begin{align}
+	\mathbb{E}_{\tilde{f}_{t,h}}\left[\log\frac{\tilde{f}_{t,h}(r)}{f_{t,h}(r)}\right]=\sum_{i=1}^I\tilde{\pi}_i\log\left(\frac{\tilde{\pi}_i}{\pi_i}\right)\stackrel{\pi_i=1/I}{=}\log{I}+\sum_{i=1}^I\tilde{\pi}_i\log\left(\tilde{\pi}_i\right),
+\end{align}
+where $\pi_i$, $i=1,\ldots,I$, are the original weights for the base density usually equal to $1/I$. Following \cite{robertson2005}, imposing the condition (\ref{eqn:klic2}) via $\mathbb{E}_{\tilde{f}_{t,h}}\left[g(r)\right]=\sum_{i=1}^I\tilde{\pi}_ig(r_{t,i})$ yields the tilting solution from (\ref{eqn:ftilde}) and (\ref{eqn:gams}) as
+\begin{align}\label{eqn:sol}
+	\pi_i^*&=\frac{\exp\left(\gamma_{t,h}^{*'}g(r_{t+h,i})\right)}{\sum_{i=1}^I\exp\left(\gamma_{t,h}^{*'}g(r_{t+h,i})\right)},\\\label{eqn:gamma}
+	\gamma_{t,h}^*&=\arg\min_{\gamma_{t,h}}\sum_{i=1}^I\exp\left(\gamma_{t,h}'(g(r_{t+h,i})-\bar{g}_t)\right).
+\end{align}
+Equation (\ref{eqn:sol}) ensures that all elements of the new weight vector $\pi_{t,h}^*$ are positive and sum up to one. $\gamma_{t,h}^*$ in (\ref{eqn:gamma}) has dimension $M$ (the number of moment conditions) and can easily be found by a Lagrangian optimization.\\
+%
+\indent The moment condition in (\ref{eqn:gmom}) restricts the set of possible candidate densities. Hence, the usefulness or uncertainty about the additional information is not measured. Moreover, the more moment conditions exists, the smaller is the set of candidate distributions.\\
+%
+\indent Entropic tilting also has a shrinkage interpretation \citep[][p. 394]{robertson2005}: Given a certain mean condition on the target random variable, imposing higher moment conditions that \textit{shrink} the variance of the target variable to zero, sets the mean automatically to the imposed target mean. In other words, $\bar{g}_t$ can be interpreted as a shrinkage target for the entire predictive return distribution, achieved through re-weighting every single draw of it and that changes its moments. This can also be seen from considering the following example: Let $y$ follow a bivariate normal distribution with $f(y)=N(\theta,\Sigma)$ and impose the restriction that the mean of the second variable $y_2$ is $\mu_2$ and its variance is $\Omega_{22}$. Then it follows that the tilted distribution is also normal $\tilde{f}^*(y)=N(\mu,\Omega)$ and the mean of $y_1$ is given by
+\begin{align}
+	\mu_1&=\theta_1+\Sigma_{22}^{-1}\Sigma_{12}(\mu_2-\theta_2)=\lambda\theta_1+(1-\lambda)\underbrace{\left(\theta_1+\frac{\Sigma_{22}^{-1}\Sigma_{12}(\mu_2-\theta_2)}{1-\lambda}\right)}_{=:\tilde{\theta}_1}.
+	%\Omega_{12}&=\Sigma_{12}\Sigma_{22}^{-1}\Omega_{22},\\
+	%\Omega_{11}&=\Sigma_{22}^{-1}(\Sigma_{11}\Sigma_{22}-\Sigma_{21}\Sigma_{12})+\Omega_{22}(\Sigma_{22}^{-1}\Sigma_{21}).
+\end{align}
+Here, $\tilde{\theta}_1$ is the shrinkage target that depends implicitly on the distance between the mean condition for second variable $\mu_2$ and the true mean $\theta_2$.\\
+%
+\indent Entropic tilting only changes the location and shape of predictive return distribution, but it does not foster better parameter estimates for the underlying prediction model. It is therefore not equivalent to putting an informative prior on the mean and variance of the prediction model centered at the analysts' forecasts. Also, it does not imply a structural relationship between the asset returns and the analysts' forecasts as the approach of \cite{frey2015}, who augment a Bayesian VAR system by survey nowcasts and impose parameter restrictions between the original variables in the VAR and the added equations for the nowcasts through the prior. 
+
+%\begin{itemize}
+%	\item If $\Omega_{22}=0\Rightarrow$ Conditional bivariate normal distribution.
+%	\item If $\Omega_{22}=\Sigma_{22}\Rightarrow$ tilted and un-tilted variances of $y_2$ are equal.
+%	\item If $\Omega_{22}<\Sigma_{22}\Rightarrow$ variance reduction for $y_1$.
+%\end{itemize}
+
+
+
+%\subsubsection{Panel vector autoregressions}
+%
+%Panel vector autoregressions (PVAR) are the collection of $N$ cross-sectional vector autoregressive systems with $G$ variables observed for $T$ time periods. They allow for all sorts of dynamic and static relationships between the $N$ systems and can be used for example to investigate the transmission of macroeconomic and financial shocks between countries or, as we will do in the application below, between different equity stocks.\\
+%%
+%\indent Denote by $y_{it}$ the vector of $G$ dependent variables for stock $i$ at time $t$, e.g. stock characteristics such as price, dividend yield and market value. The vector autoregressive system for stock $i$ with $P$ lags can be written as
+%\begin{equation}
+%\label{eqn:pvar}
+%y_{it}=\sum_{p=1}^PA_{p,i}Y_{t-p}+\varepsilon_{it},\quad i=1,\ldots,N, \quad t=1,\ldots,T
+%\end{equation}
+%where $Y_{t}=\left(y_{1t}',\ldots,y_{Nt}'\right)'$ is a $(N\cdot G\times 1)$ vector and $A_{p,i}$ are $G\times N\cdot G$ matrices for each lag $p=1,\ldots,P$. $\varepsilon_{it}\stackrel{iid}{\sim}\No{0,\Sigma_{ii}}$ for every $t$ is assumed to be uncorrelated over time. Further, let $\cov{\varepsilon_{it},\varepsilon_{jt},}=\Ex{\varepsilon_{it},\varepsilon_{jt}}=\Sigma_{ij}$ be the covariance between the error terms of the VAR system for stock $i$ and stock $j$. A further, more compact form for the PVAR in equation (\ref{eqn:pvar}) is given by
+%\begin{equation}
+%\label{eqn:pvar_vec}
+%Y_t=Z_t\alpha+\varepsilon_t,
+%\end{equation}
+%where $A=(A_1,\ldots,A_P)$, $A_p=(A_{p,1},\ldots,A_{p,N})$, $p=1,\ldots,P$, $\alpha=\text{vec}(A)$, and $Z_t=\mathbf{I}_{N\cdot G}\otimes (Y_{t-1}',\ldots,Y_{t-P}')$.\\
+%%\begin{equation}
+%%Z_t=\begin{pmatrix}
+%%z_t&0&\cdots&0\\
+%%0&z_t&\ddots&\vdots\\
+%%\vdots&\ddots&\ddots&0\\
+%%0&\cdots&0&z_t
+%%\end{pmatrix}.
+%%\end{equation}
+%%
+%\indent The PVAR system in (\ref{eqn:pvar}) is unrestricted. It allows for all kinds of cross-sectional dependence between different stocks and also does not restrict the magnitude of these effects. The disadvantage of this PVAR flexibility is their over-parameterization. An unrestricted PVAR system has $K=P\cdot(N\cdot G)^2$ autoregressive parameters and $N\cdot G\cdot (N\cdot G +1)\big/2$ free parameters in the error term covariance matrix. To allow reasonable estimation, restriction to account for the panel structure of the system have to be imposed. Typical restrictions in the literature \citep{koop2016} include (i) absence of dynamic interdependencies, i.e. the variables in one of the $N$ systems do not depend on the $G$ lagged variables of another system, (ii) absence of static interdependencies, i.e. the contemporaneous correlation between the errors of two systems is zero, and (iii) cross-sectional homogeneities, i.e. VAR coefficient on lagged variables are identical across different systems.\\
+%%
+%\indent The number of cross-sections $N$ determine the set of possible restrictions and the questions which of these restrictions are reasonable depends on the empirical problem. Choosing the best combination of any of them is computational infeasible and thus PVAR structures require any kind of regularization and dimension reduction technique to obtain reasonable model estimates. Typically to handle such parameter universes, the literature has studied shrinkage methods, (Bayesian) model averaging and selection techniques, and hierarchical as well as factor model structures.\\
+%%
+%\indent Naturally%\cite{canova2013} point out that 
+%it would not be optimal to treat the panel VAR as a large VAR \citep{banbura2010} and to ignore the panel structure. For example, while it is very likely that the lags of the characteristics for stock $i$ are important to explain their joint process in $t$, the remaining $N-1$ stocks and their corresponding characteristics might not be relevant for a the $i^{th}$ stock. Hence, these coefficients should be shrunken to zero with higher probability than the coefficients on the own lags. Threating all variables symmetrically, regardless of their cross-sectional belonging and eventually shrinking all VAR coefficient uniformly, would induce a bias to estimated coefficients. Although the dimensionality reduction feature of most shrinkage methods explains their increased forecasting performance, the choice of the prior limits the type of analyses one can perform and renders the nature of the error term covariance matrix. Further, allowing for time variation in the model parameters requires a factor structure to make the estimation problem manageable \citep{koop2015}.\\
+%%
+%\indent Factor models reduce (shrink) the data dimensions to foster reasonable model estimates. The following three approaches propose shrinkage priors for the autoregressive coefficients of the PVAR system to induce parameter restrictions. They idea is similar to \cite{frey2015}, who augment a Bayesian VAR system by survey nowcasts and impose parameter restrictions between the original VAR and the add equations for the nowcasts through the prior.\\
+%\indent To deal with model uncertainty in panel vector autoregressions (PVAR), \cite{koop2016} propose an \textit{stochastic search specification ($S^4$)} algorithm to impose PVAR parameter restrictions involving interdependencies between and heterogeneities across cross-sectional units.  Depending on the type of restriction on the VAR parameters of block $i$ our of $N$, the authors use a binary selection vector $\gamma_{i,j}$ to distinguish between a flat uninformative prior and the restriction on a specific VAR coefficient matrix $A_{p,i,j}$, the $j^{th}$ block of $A_{p,i}$, with dimension $G\times G$, as follows:
+%\begin{align}
+%	\label{eqn:ssss}
+%	\text{vec}(A_{p,i,j})|\gamma_{i,j}&\sim(1-\gamma_{i,j})\No{\psi_i,\tau_1^2\times\mathbf{I}_G}+\gamma_{i,j}\No{0,\tau_2^2\times\mathbf{I}_G},\\
+%	\gamma_{i,j}&\sim\text{Bernoulli}(\pi_{i,j}),\quad\forall i\neq j\nonumber\\
+%	\pi_{i,j}&\sim\text{Beta}(1,c),\nonumber
+%\end{align}
+%where $\tau_1^2<\tau_2^2$. Hence, if $\gamma_{i,j}=0$, $A_{p,i}$ gets shrunken towards $\delta_i$ and if $\gamma_{i,j}=1$, no shrinkage is imposed onto $A_{p,i,j}$ due to the flat prior from a large value of $\tau_2^2$. For $i\neq j$, $\psi_i=0$ sets the VAR coefficients to zero (e.g. to rule out dynamic interdependencies) and for $i=j$, $\psi_i=\text{vec}(A_{p,j,j})$ imposes cross-sectional homogeneity between system (stock) $i$ and $j$. The authors use MCMC draws of $\gamma$, which can also be a vector of different restrictions $\gamma_{i,j}$, to do model selection or averaging. However, there are two shortcomings of this hierarchical prior: First, it only allows to resrtict entire VAR coefficient matrices. It is not possible to check if only one element is zero or not. Second, for computational reasons, $\tau_1^2$ has to be largr than zero. Thus, the prior only test for approximate equivalence of the matrices.\\
+%%
+%\indent \cite{korobilis2016} overcomes these issues by using a factor structure proposed by \cite{canova2009}. The factor model is
+%\begin{equation}
+%\label{eqn:factor}
+%\alpha=\Xi\theta+\nu,
+%\end{equation}
+%where $\alpha$ is the VAR coefficient vector, $\Xi$ is a $K\times s$ loadings matrix, $\theta$ is a $s\times 1$ parameter vectors, i.e. the factors with $s\ll k$, and $\nu\sim\No{0,\Sigma\otimes\sigma^2\mathbf{I}}$. For example $\theta$ could include a common factor for all observations, a variable specific factor and a system (stock) specific factor. While in (\ref{eqn:factor}) every element of $\alpha$ is clustered correpsonding to the factor structure, \cite{korobilis2016} proposes a spike and slab prior structure called \textit{Bayesian Factor Clustering and Selection (BFCS)} as follows:
+%\begin{align}
+%	\label{eqn:bfcs}
+%	\alpha_k|\gamma_k,\theta,\Sigma&\sim(1-\gamma_k)\delta_0(\alpha)+\gamma_k\Delta_k\,,\\
+%	\Delta|\theta,\Sigma&\sim\No{\Xi\theta,\Sigma\otimes\sigma^2\mathbf{I}},\nonumber\\
+%	\theta&\sim\No{0,c},\nonumber\\
+%	\gamma_k&\sim\text{Bernoulli}(\pi),\nonumber
+%\end{align}
+%with $\Delta_k$ is the $k^{th}$ row of the matrix $\Delta$ and $\delta_0(\alpha)$ is the Dirac delta.\\
+%%
+%Eventually, \cite{koop2015} extend the time-varying parameter VAR of \cite{koop2013} to panel structures. The authors use the factor model proposed by \cite{canova2009} in which the factor loadings follow a random walk and in which the error covariance is also time-varying. Finally, they apply a dynamic model averaging strategy over different priors and find substantial forecasting performance gains.
+

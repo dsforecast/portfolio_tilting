@@ -1,0 +1,19 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: PFtilting_prim.aux
+The style file: ecta.bst
+Database file #1: ../tilting.bib
+Repeated entry---line 1405 of file ../tilting.bib
+ : @article{klein1976
+ :                   ,
+I'm skipping whatever remains of this entry
+Name 1 in "Kandel, Shmuel, and Robert F. Stambaugh" has a comma at the end for entry kandel1987
+while executing---line 1426 of file ecta.bst
+Name 1 in "Kandel, Shmuel, and Robert F. Stambaugh" has a comma at the end for entry kandel1987
+while executing---line 1426 of file ecta.bst
+Name 1 in "Kandel, Shmuel, and Robert F. Stambaugh" has a comma at the end for entry kandel1987
+while executing---line 1479 of file ecta.bst
+Name 1 in "Kandel, Shmuel, and Robert F. Stambaugh" has a comma at the end for entry kandel1987
+while executing---line 1495 of file ecta.bst
+Name 1 in "Kandel, Shmuel, and Robert F. Stambaugh" has a comma at the end for entry kandel1987
+while executing---line 1495 of file ecta.bst
+Warning--empty booktitle in rapach2013
+(There were 6 error messages)

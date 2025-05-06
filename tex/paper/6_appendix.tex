@@ -1,0 +1,258 @@
+\subsection{Estimation of the TVP-BVAR with SV using forgetting factors}
+\label{app:est}
+We consider the model
+\begin{align}\label{eqn:Atvpvar1}
+	y_t&=a_t+A_{1,t}\,y_{t-1}+\varepsilon_t,\\
+	A_t&=\phi A_{t-1}+(1-\phi)\underline{A}_0+u_t,\label{eqn:Atvpvar2}
+\end{align}
+where $A_t=[a_t\,\,\, A_{1,t}]$ is an unknown state vector, $\underline{A}_0$ is some initial condition for each $t$ and also $A_0=\underline{A}_0$, $\varepsilon_t\stackrel{iid}{\sim}\No{0,\Sigma_t}$ with initial condition $\Sigma_0$, $u_t\stackrel{iid}{\sim}\No{0,\Omega_t}$ with initial condition $\Omega_0$ and $\varepsilon_t$ and $u_s$ are independent of each other for all $t$ and $s$. To estimate the mode, we run a Kalman filter for $t=1,\ldots,T$ as follows:\footnote{The algorithm is taken and amended from the technical appendix of the working paper version of \cite{koop2013}.}\\
+\textbf{I. Prediction step:}
+\begin{enumerate}
+	%\item Set $\beta_{t|t-1}=\phi \beta_{t-1|t-1}+(1-\phi)\underline{\beta}_0$
+	\item Set $A_{t|t-1}=\phi A_{t-1|t-1}+(1-\phi)\underline{A}_0$.
+	%\item Estimate $\lambda_t=\lambda_{\text{min}}+(1-\lambda_{\text{min}})L^{f_t}$ with $f_t=-RNI(\tilde{\varepsilon}_{t-1}'\tilde{\varepsilon}_{t-1})$, where $RNI(\cdot)$ rounds to the nearest integer value.
+	\item Set $P_{t|t-1}=\frac{1}{\lambda}P_{t-1|t-1}$\\
+	where for $t=1$ we set $A_{0|0}=\underline{A}_0$ and $P_{0|0}=\underline{P}_0$.
+\end{enumerate}
+\textbf{II. Update step:}
+\begin{enumerate}
+	\item Calculate $\tilde{\varepsilon}_t=y_t-a_{t|t-1}+A_{t|t-1}\,y_{t-1}$.
+	\item Calculate $\hat{\Sigma}_t=\kappa\hat{\Sigma}_{t-1}+(1-\kappa)\tilde{\varepsilon}_t'\tilde{\varepsilon}_t$ with $\hat{\Sigma}_1=\kappa\Sigma_0$.
+	%\item Estimate $\beta_{t|t}=\beta_{t|t-1}+P_{t|t-1}[1\,\, y_{t-1}]'\left(\hat{\Sigma}_t+[1\,\, y_{t-1}]P_{t|t-1}[1 y_{t-1}]'\right)^{-1}\tilde{\epsilon}_t$\
+	\item Estimate $A_{t|t}=A_{t|t-1}+P_{t|t-1}[1 y_{t-1}]'\left(\hat{\Sigma}_t+[1 y_{t-1}]P_{t|t-1}[1 y_{t-1}]'\right)^{-1}\tilde{\epsilon}_t$.
+	\item Calculate $P_{t|t}=P_{t|t-1}+P_{t|t-1}[1 y_{t-1}]'\left(\hat{\Sigma}_t+[1 y_{t-1}]P_{t|t-1}[1 y_{t-1}]'\right)^{-1}P_{t|t-1}$.
+\end{enumerate}
+The one-step ahead predictive density of the VAR model is then analytically available from the Kalman filter as
+\begin{equation}
+p(y_t|y^t)\sim\No{[1\,\, y_{t+1}]A_{t+1|t},\hat{\Sigma}_{t+1}+[1\,\, y_{t+1}]A_{t+1|t}[1\,\, y_{t+1}]'}.
+\end{equation}
+
+\clearpage
+\newpage
+
+\subsection{Figures}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=1\linewidth]{../plots/IBM_price_plot}
+	\caption[Spot price, 12 months forward target price and percentage of buy recommendations of the IBM stock (monthly data) between 1999 and 2015]{The figure shows IBM spot price, the mean 12 months forward target price and the percentage of buy recommendations from all recommendations (buy, sell, hold) of the IBM stock between 1999 and 2015.}
+	\label{fig:ibmpriceplot}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=1\linewidth]{../plots/IBM_CSSED_plot}
+	\includegraphics[width=1\linewidth]{../plots/IBM_CLSD_plot}
+	\includegraphics[width=1\linewidth]{../plots/IBM_R2_plot}
+	\caption[Out-of-sample forecast performance results for different univariate models for the IBM stock for 2004 to 2015]{The figure provides out-of-sample forecast performance results for different univariate models for the IBM stock for 2004 to 2015. The top panel shows the cumulative sum of squared forecast errors of the benchmark mean model model minus the sum of squared forecast errors for six univariate models with different regressors, i.e. for model $m$ this is $\text{CSSED}_{m,t}=\sum_{i=S+1}^{t}\left(e_{0,i}^2-e_{m,i}^2\right)$. Each model is estimated from a linear regression of monthly excess returns on an intercept and a lagged predictor variable, i.e. $r_t=\alpha+\beta x_{t-1}+\varepsilon_t$. The middle panel shows the cumulative sum of log predictive scores of the six models minus the sum of log predictive scores of the benchmark mean model. The bottom panel shows the cumulative sum of out-of-sample $\text{R}^2$ values of each of the six univariate models. For all three panels it holds that values above zero indicate that a given predictor has better forecast performance than the benchmark model, while negative values suggest the opposite.}
+	\label{fig:ibmclsdplot}
+\end{figure}
+
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.49\linewidth]{../plots/IBM_density_m1}
+	\includegraphics[width=0.49\linewidth]{../plots/IBM_density_m2}\\
+	\includegraphics[width=0.49\linewidth]{../plots/IBM_density_m3}
+	\includegraphics[width=0.49\linewidth]{../plots/IBM_density_m4}
+	\caption[Kernel estimates of predictive density of the IBM returns from the TVPVAR(1) with dynamic model averaging and tilting towards the mean of monthly target price implied expected returns]{The figure shows the kernel of the predictive density of the IBM returns from the TVPVAR(1) model with dynamic model averaging and mean tilting towards the target price implied expected return at different times. The black horizontal line indicates the actual outcome return)}
+	\label{fig:ibmdensitym}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.49\linewidth]{../plots/IBM_density_mv1}
+	\includegraphics[width=0.49\linewidth]{../plots/IBM_density_mv2}\\
+	\includegraphics[width=0.49\linewidth]{../plots/IBM_density_mv3}
+	\includegraphics[width=0.49\linewidth]{../plots/IBM_density_mv4}
+	\caption[Kernel estimates of predictive density of the IBM returns from the TVPVAR(1) with dynamic model averaging and tilting towards the mean and variance of monthly target price implied expected returns]{The figure shows the kernel of the predictive density of the IBM returns from the TVPVAR(1) model with dynamic model averaging with tilting towards the mean and variance of the target price implied expected returns at different times. The black horizontal line indicates the actual outcome return)}
+	\label{fig:ibmdensitymv}
+\end{figure}
+
+\newpage\clearpage
+
+\subsection{Tables}
+\input{../tables/RMSFEs}
+\input{../tables/summary} 
+
+%
+%\input{../tables/mRsquard_BVAR} 
+%\input{../tables/mCSSED_BVAR} 
+%\input{../tables/mCLSD_BVAR} 
+%\input{../tables/mRMSFE_BVAR} 
+%\input{../tables/mCRPSD_BVAR} 
+
+\newpage
+\input{../tables/mRsquard_BVAR} 
+\input{../tables/mRsquard_TVPVAR} 
+\input{../tables/mRsquard_TVPVARm} 
+\input{../tables/mRsquard_TVPVARmv} 
+\clearpage
+%\input{../tables/mCSSED_BVAR} 
+%\input{../tables/mCSSED_TVPVAR} 
+%\input{../tables/mCSSED_TVPVARm} 
+%\input{../tables/mCSSED_TVPVARmv} 
+\clearpage
+\input{../tables/mCLSD_BVAR} 
+\input{../tables/mCLSD_TVPVAR} 
+\input{../tables/mCLSD_TVPVARm} 
+\input{../tables/mCLSD_TVPVARmv} 
+\clearpage
+\input{../tables/mRsquard_ALL} 
+%\input{../tables/mCSSED_ALL} 
+\input{../tables/mCLSD_ALL} 
+
+%\input{../tables/RMSFEs2} 
+
+
+
+%
+%\input{../Matlab/Results/N5r1h60}
+%
+%\input{../Matlab/Results/N30r1h60}
+%
+%%\input{../Matlab/Results/N100r1h60}
+%
+%\clearpage
+%\newpage
+%
+%\subsection{Figures}
+%
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_TO_Series_Group1}
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_TO_Series_Group2}
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_TO_Series_Group3}
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_TO_Series_Group4}
+%\caption{Annualized turnover for the $N=5$ asset portfolios with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:N5_h60_TO_Series}
+%\end{figure}
+%
+%\clearpage
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N30_h60_TO_Series_Group1}
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N30_h60_TO_Series_Group2}
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N30_h60_TO_Series_Group3}
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N30_h60_TO_Series_Group4}
+%\caption{Annualized turnover for the $N=30$ asset portfolios with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:N30_h60_TO_Series}
+%\end{figure}
+%
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_SD_Boxplot}\\
+%\vspace{0.5cm}
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N30_h60_SD_Boxplot}
+%\caption{Box plots for the annualized (1965 - 2013) out-of-sample standard deviations for the $N=5$ (top) and $N=30$ (bottom) asset portfolios.}
+%\label{fig:N5_N30_h60_SD_Boxplots}
+%\end{figure}
+%
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_TO_Boxplot}\\
+%\vspace{0.5cm}
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N30_h60_TO_Boxplot}
+%\caption{Box plots for the annualized (1965 - 2013) out-of-sample turnover (absolute portfolio weight changes) for the $N=5$ (top) and $N=30$ (bottom) asset portfolios.}
+%\label{fig:N5_N30_h60_TO_Boxplots}
+%\end{figure}
+%
+%\clearpage
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model1_Weights}
+%\caption{Monthly portfolio weights of strategy 1 (NIP prior) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights1}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model2_Weights}
+%\caption{Monthly portfolio weights of strategy 2 (Empirical Ridge) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights2}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model3_Weights}
+%\caption{Monthly portfolio weights of strategy 3 (Empirical Bayes) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights3}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model4_Weights}
+%\caption{Monthly portfolio weights of strategy 4 (Hierarchical Ridge) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights4}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model5_Weights}
+%\caption{Monthly portfolio weights of strategy 5 (Bayesian Lasso) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights5}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model6_Weights}
+%\caption{Monthly portfolio weights of strategy 6 (Bayesian Lasso of Turnover) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights6}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model7_Weights}
+%\caption{Monthly portfolio weights of strategy 7 (Bayesian Elastic Net) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights7}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model8_Weights}
+%\caption{Monthly portfolio weights of strategy 8 (Optimal Truncated Normal) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights8}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model9_Weights}
+%\caption{Monthly portfolio weights of strategy 9 (Truncated Normal on $[-1/N,1/N]$) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights9}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model10_Weights}
+%\caption{Monthly portfolio weights of strategy 10 ($1/N$) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights10}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model11_Weights}
+%\caption{Monthly portfolio weights of strategy 11 (\citet{ledoit2003}) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights11}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model12_Weights}
+%\caption{Monthly portfolio weights of strategy 12 (\citet{kourtis2012}) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights12}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model13_Weights}
+%\caption{Monthly portfolio weights of strategy 13 (\citet{frahm2010b}) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights13}
+%\end{figure}
+%
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=0.99\textwidth]{../Matlab/Plots/Mean/N5_h60_Model13_Weights}
+%\caption{Monthly portfolio weights of strategy 14 (\citet{pollak2011}) for the $N=5$ asset portfolio with 60 month (5 years) rolling estimation window over the time period 1965 to 2013.}
+%\label{fig:weights14}
+%\end{figure}

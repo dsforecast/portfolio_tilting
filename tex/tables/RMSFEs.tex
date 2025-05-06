@@ -1,0 +1,22 @@
+\begin{table}[h!]
+\fontsize{11}{18}\selectfont{
+\begin{center}
+\caption{Relative root mean squared errors between forecasted and observed spot prices for 20 Dow Jones constituents (sample: 1999 - 2015) }
+\label{tab:rmsfe}
+\vspace{-0.2cm}
+\begin{tabularx}{1\textwidth}{@{}X@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c@{\hspace{0.25cm}}c@{}}
+\toprule\toprule
+ Stock  & AA	 & AAPL	 & AIG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 & HD	\\
+\midrule
+ rRMSFE  & $1.33^{**}$	 & \textbf{0.74}	 & $1.45^{***}$	 & \textbf{0.93}	 & \textbf{0.87}	 & \textbf{0.96}	 & 1.09	 & $1.24^{**}$	 & 1.23	 & \textbf{0.83}	\\
+\midrule
+\midrule
+ Stock  & INTC	 & IBM	 & JNJ	 & MCD	 & MRK	 & MSFT	 & PG	 & UTX	 & WMT	 & DIS	\\
+\midrule
+ rRMSFE  & 1.36	 & \textbf{0.94}	 & \textbf{0.85}	 & $\mathbf{0.69^{***}}$	 & $1.25^{*}$	 & $1.65^{***}$	 & 1.01	 & \textbf{0.82}	 & 1.24	 & \textbf{0.84}	\\
+\bottomrule\bottomrule
+\end{tabularx}
+\vspace{0.2cm}
+\caption*{\footnotesize \textit{Note:} The table displays relative root mean squared errors between observed spot price twelve months ahead and the mean 12-month forward target price as well as the two year historical average for 20 Dow Jones constituents between 1999 and 2015. Values lower than one indicate that the target price generates superior forecast performance. For each stock, we test whether the target price forecast has lower MSFE than the average price forecast by the test proposed by \citet{giacomini2006}. One/two/three asterisks denote rejection of the null hypothesis of equal predictive ability at the ten/five/one percent test level.}
+\end{center}}
+\end{table}

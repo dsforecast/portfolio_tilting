@@ -1,0 +1,44 @@
+\begin{table}[h!]
+\fontsize{11}{15}\selectfont{
+\begin{center}
+\caption{Forecast performance in terms of out-of-sample R$^2$ for 20 Dow Jones constituents (sample: 2004 - 2015) between various forecasting models}
+\label{tab:mRsquard_ALL}
+\vspace{-0.2cm}
+\begin{tabularx}{1\textwidth}{@{}X@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{}}
+\toprule\toprule
+ Stock  & AA	 & AAPL	 & AIG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 & HD	\\
+\midrule
+ AR1  & -1.28	 & $\mathbf{1.30^{**}}$	 & $\mathbf{1.63^{**}}$	 & -0.67	 & -0.98	 & $\mathbf{2.24^{***}}$	 & \textbf{0.26}	 & -0.26	 & -0.61	 & \textbf{0.05}	\\
+ BVAR-Full  & -0.06	 & -0.13	 & -1.36	 & $\mathbf{0.74^{*}}$	 & \textbf{0.05}	 & \textbf{0.07}	 & -1.13	 & -0.18	 & -0.66	 & -0.18	\\
+ BVAR-Minn  & -0.21	 & -0.60	 & $\mathbf{0.97^{*}}$	 & -1.07	 & $\mathbf{0.88^{*}}$	 & $\mathbf{0.87^{*}}$	 & -0.56	 & -0.10	 & -0.83	 & $\mathbf{1.77^{**}}$	\\
+ TVP-BVAR-DMA  & \textbf{0.19}	 & -1.52	 & \textbf{0.14}	 & \textbf{0.33}	 & $\mathbf{1.01^{**}}$	 & -0.42	 & -0.81	 & -0.89	 & \textbf{0.38}	 & -2.51	\\
+\midrule
+ TVP-BVAR-DMS  & $\mathbf{0.99^{*}}$	 & $\mathbf{0.67^{*}}$	 & \textbf{0.08}	 & \textbf{0.41}	 & -0.08	 & -1.11	 & $\mathbf{1.16^{**}}$	 & $\mathbf{0.74^{*}}$	 & -1.12	 & -0.46	\\
+ TVP-BVAR-DMA-M  & $\mathbf{0.58^{*}}$	 & \textbf{0.02}	 & $\mathbf{0.72^{*}}$	 & \textbf{0.15}	 & -1.85	 & $\mathbf{0.69^{*}}$	 & $\mathbf{0.59^{*}}$	 & $\mathbf{1.39^{**}}$	 & $\mathbf{0.67^{*}}$	 & $\mathbf{2.43^{***}}$	\\
+ TVP-BVAR-DMA-MV  & $\mathbf{1.31^{**}}$	 & -1.18	 & $\mathbf{1.19^{**}}$	 & $\mathbf{0.55^{*}}$	 & -1.10	 & $\mathbf{1.04^{**}}$	 & \textbf{0.24}	 & $\mathbf{2.47^{***}}$	 & $\mathbf{0.80^{*}}$	 & -0.47	\\
+ TVP-BVAR-DMS-M  & -0.73	 & -0.33	 & -1.07	 & -1.17	 & \textbf{0.22}	 & $\mathbf{1.82^{**}}$	 & \textbf{0.24}	 & $\mathbf{0.50^{*}}$	 & $\mathbf{1.04^{**}}$	 & -0.56	\\
+\midrule
+ TVP-BVAR-DMS-MV  & -0.86	 & -1.83	 & $\mathbf{1.32^{**}}$	 & $\mathbf{1.01^{**}}$	 & $\mathbf{0.79^{*}}$	 & -0.53	 & -0.82	 & -0.82	 & -0.02	 & -1.23	\\
+ BLASSO  & -0.09	 & \textbf{0.43}	 & -1.21	 & \textbf{0.11}	 & \textbf{0.46}	 & -1.63	 & $\mathbf{0.99^{*}}$	 & \textbf{0.20}	 & $\mathbf{0.62^{*}}$	 & $\mathbf{0.79^{*}}$	\\
+\midrule
+\midrule
+ Stock  & INTC	 & IBM	 & JNJ	 & MCD	 & MRK	 & MSFT	 & PG	 & UTX	 & WMT	 & DIS	\\
+\midrule
+ AR1  & -0.80	 & $\mathbf{0.66^{*}}$	 & \textbf{0.14}	 & \textbf{0.30}	 & -0.15	 & $\mathbf{0.92^{*}}$	 & \textbf{0.47}	 & -0.34	 & $\mathbf{1.34^{**}}$	 & -1.85	\\
+ BVAR-Full  & $\mathbf{0.57^{*}}$	 & -0.54	 & -1.59	 & \textbf{0.42}	 & \textbf{0.25}	 & -0.91	 & \textbf{0.00}	 & $\mathbf{0.53^{*}}$	 & -1.62	 & $\mathbf{1.80^{**}}$	\\
+ BVAR-Minn  & -0.00	 & \textbf{0.33}	 & -1.02	 & \textbf{0.04}	 & -0.61	 & \textbf{0.14}	 & \textbf{0.33}	 & $\mathbf{1.06^{**}}$	 & -0.49	 & -0.88	\\
+ TVP-BVAR-DMA  & $\mathbf{0.62^{*}}$	 & $\mathbf{1.05^{**}}$	 & -1.39	 & -0.95	 & $\mathbf{0.76^{*}}$	 & $\mathbf{1.40^{**}}$	 & $\mathbf{1.20^{**}}$	 & \textbf{0.01}	 & -0.97	 & $\mathbf{0.65^{*}}$	\\
+\midrule
+ TVP-BVAR-DMS  & \textbf{0.13}	 & -1.98	 & $\mathbf{0.95^{*}}$	 & $\mathbf{0.54^{*}}$	 & \textbf{0.25}	 & -0.19	 & -1.40	 & $\mathbf{1.61^{**}}$	 & -0.47	 & $\mathbf{1.05^{**}}$	\\
+ TVP-BVAR-DMA-M  & $\mathbf{0.68^{*}}$	 & -1.87	 & -0.60	 & -0.82	 & -0.15	 & -0.84	 & \textbf{0.21}	 & -0.82	 & -0.67	 & $\mathbf{1.32^{**}}$	\\
+ TVP-BVAR-DMA-MV  & -1.29	 & -1.83	 & -1.17	 & -1.07	 & -0.56	 & $\mathbf{1.94^{**}}$	 & -1.99	 & -2.00	 & \textbf{0.48}	 & -0.52	\\
+ TVP-BVAR-DMS-M  & \textbf{0.22}	 & $\mathbf{0.85^{*}}$	 & -0.58	 & -1.07	 & $\mathbf{0.68^{*}}$	 & -0.25	 & \textbf{0.03}	 & -0.75	 & -1.04	 & \textbf{0.02}	\\
+\midrule
+ TVP-BVAR-DMS-MV  & -1.57	 & \textbf{0.41}	 & -0.84	 & $\mathbf{0.87^{*}}$	 & $\mathbf{0.85^{*}}$	 & \textbf{0.44}	 & $\mathbf{1.93^{**}}$	 & -0.20	 & -0.82	 & -0.16	\\
+ BLASSO  & $\mathbf{0.78^{*}}$	 & -0.70	 & $\mathbf{0.85^{*}}$	 & $\mathbf{0.98^{*}}$	 & \textbf{0.47}	 & -0.80	 & $\mathbf{0.94^{*}}$	 & -0.37	 & \textbf{0.10}	 & -0.61	\\
+\bottomrule\bottomrule
+\end{tabularx}
+\vspace{0.2cm}
+\caption*{\footnotesize \textit{Note:} The table provides forecast performance results in terms of mean out-of-sample R$^2$ for 20 Dow Jones constituents (sample: 2004 - 2015) with a one month forecast horizon. The benchmark model is a simple mean model. For each asset, we estimate a Bayesian VAR system with time-varying coefficients and stochastic volatility for the monthly excess returns on an intercept and a lagged predictor variable, i.e. $\begin{bmatrix}r_t\\x_t\end{bmatrix}=a_t+A_{1,t}\begin{bmatrix}r_{t-i}\\x_{t-i}\end{bmatrix}+\varepsilon_t$, $t=1,\ldots,T$, $A_t= \phi A_{t-1}+(1-\phi)\underline{A}_0+u_t$, where $A_t=[a_t\,\,\, A_{1,t}]$ is time-index for every single parameter, $\varepsilon_t\stackrel{iid}{\sim}\N{0,\Sigma_t}$, $u_t\stackrel{iid}{\sim}\N{0,\Omega_t}$ and $\varepsilon_t$ and $u_s$ are independent of one each other for all $t$ and $s$. We estimate the model using forgetting factors with the following parameter values: $\lambda=0.99$, $\kappa=0.96$ and $\phi=0.5$. The mean and variance of the predictive distribution are tilted towards the mean and variance of the monthly forward target price implied expected return. Further, DY is the divdend yield, PR is the earnings-price ratio, DPR is the dividen-price-ratio, BMR is the book-to-markt ratio, LT is longterm yield, TPR is the target price return, TPV the target price variance and REC stands for recommendations. Values above zero indicate that a given predictor has better forecast performance than the benchmark model, while negative values suggest the opposite. All values are multiplied by 100. We test statistical significance in the average loss between the each model and a simple mean model using the \cite{diebold1995} test. One/two/three asterisks denote rejection of the null hypothesis of equal predictive ability at the ten/five/one percent test level.}
+\end{center}}
+\end{table}

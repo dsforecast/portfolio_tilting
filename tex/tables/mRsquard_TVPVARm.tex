@@ -1,0 +1,48 @@
+\begin{table}[h!]
+\fontsize{11}{15}\selectfont{
+\begin{center}
+\caption{Forecast performance in terms of out-of-sample R$^2$ for 20 Dow Jones constituents (sample: 2004 - 2015) using a TVP-BVAR(1) with stochastic volatility and entropic tilting towards the mean of monthly target price implied expected returns}
+\label{tab:mRsquard_TVPVARm}
+\vspace{-0.2cm}
+\begin{tabularx}{1\textwidth}{@{}X@{\hspace{0.2cm}}l@{\hspace{0.2cm}}l@{\hspace{0.2cm}}l@{\hspace{0.2cm}}l@{\hspace{0.2cm}}l@{\hspace{0.2cm}}l@{\hspace{0.2cm}}l@{\hspace{0.2cm}}l@{\hspace{0.2cm}}l@{\hspace{0.2cm}}l@{}}
+\toprule\toprule
+ Stock  & AA	 & AAPL	 & AIG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 & HD	\\
+\midrule
+ Log DY  & -6.45	 & \textbf{0.38}	 & -3.35	 & -0.57	 & -1.24	 & -0.11	 & \textbf{0.47}	 & \textbf{0.00}	 & -0.05	 & \textbf{0.10}	\\
+ Log EPR  & -1.74	 & \textbf{0.50}	 & -0.60	 & -0.03	 & -5.50	 & \textbf{0.26}	 & \textbf{0.10}	 & -0.13	 & -0.04	 & -0.51	\\
+ Log DPR  & \textbf{0.36}	 & \textbf{0.20}	 & \textbf{0.37}	 & -0.01	 & -0.75	 & \textbf{0.27}	 & -0.09	 & \textbf{0.52}	 & \textbf{0.17}	 & \textbf{0.34}	\\
+ BMR  & \textbf{0.06}	 & \textbf{0.67}	 & -0.73	 & -0.11	 & \textbf{0.41}	 & \textbf{0.24}	 & -0.67	 & -0.13	 & \textbf{0.25}	 & -0.01	\\
+\midrule
+ 3M Tbill rate  & \textbf{0.32}	 & \textbf{0.51}	 & \textbf{0.37}	 & \textbf{0.80}	 & \textbf{0.35}	 & -0.13	 & \textbf{0.12}	 & -0.21	 & -0.04	 & -0.12	\\
+ Market return  & \textbf{0.13}	 & \textbf{0.31}	 & \textbf{0.15}	 & \textbf{0.25}	 & \textbf{0.21}	 & \textbf{0.23}	 & \textbf{0.18}	 & -0.10	 & \textbf{0.16}	 & -0.49	\\
+ LT yield  & \textbf{0.23}	 & \textbf{0.50}	 & \textbf{0.53}	 & \textbf{0.36}	 & \textbf{0.09}	 & \textbf{0.09}	 & \textbf{0.05}	 & -0.20	 & \textbf{0.38}	 & -0.20	\\
+ CPI inflation  & \textbf{0.27}	 & \textbf{0.72}	 & -0.05	 & \textbf{0.24}	 & -0.01	 & \textbf{0.21}	 & -0.19	 & -0.08	 & \textbf{0.28}	 & \textbf{0.48}	\\
+\midrule
+ Log TPR  & \textbf{0.20}	 & \textbf{0.25}	 & \textbf{0.15}	 & -0.42	 & -0.03	 & \textbf{0.76}	 & \textbf{0.54}	 & \textbf{0.45}	 & -0.02	 & \textbf{0.61}	\\
+ Log TPV  & -0.02	 & \textbf{0.35}	 & \textbf{0.76}	 & \textbf{0.31}	 & \textbf{0.60}	 & -0.47	 & -0.14	 & \textbf{0.52}	 & \textbf{0.52}	 & \textbf{0.84}	\\
+ Log REC  & -0.10	 & \textbf{0.33}	 & \textbf{0.29}	 & \textbf{0.01}	 & -0.79	 & \textbf{0.11}	 & -0.51	 & -0.56	 & \textbf{0.09}	 & \textbf{0.43}	\\
+ Log REC return  & $\mathbf{8.59^{***}}$	 & -0.28	 & \textbf{0.18}	 & \textbf{0.63}	 & \textbf{0.15}	 & \textbf{0.30}	 & $\mathbf{8.40^{***}}$	 & $\mathbf{8.36^{***}}$	 & \textbf{0.24}	 & \textbf{0.38}	\\
+\midrule
+\midrule
+ Stock  & INTC	 & IBM	 & JNJ	 & MCD	 & MRK	 & MSFT	 & PG	 & UTX	 & WMT	 & DIS	\\
+\midrule
+ Log DY  & \textbf{0.05}	 & \textbf{0.32}	 & -0.43	 & -0.14	 & \textbf{0.06}	 & \textbf{0.28}	 & \textbf{0.12}	 & \textbf{0.43}	 & \textbf{0.17}	 & \textbf{0.05}	\\
+ Log EPR  & -0.19	 & -0.03	 & \textbf{0.04}	 & -0.09	 & -0.25	 & -0.07	 & \textbf{0.20}	 & \textbf{0.26}	 & -0.05	 & -0.01	\\
+ Log DPR  & \textbf{0.38}	 & -0.29	 & -0.08	 & -0.05	 & \textbf{0.38}	 & \textbf{0.22}	 & -1.54	 & \textbf{0.41}	 & \textbf{0.17}	 & \textbf{0.27}	\\
+ BMR  & \textbf{0.40}	 & -0.16	 & \textbf{0.04}	 & -0.42	 & -0.06	 & -0.25	 & \textbf{0.07}	 & \textbf{0.39}	 & -0.04	 & \textbf{0.21}	\\
+\midrule
+ 3M Tbill rate  & \textbf{0.18}	 & -0.16	 & -0.14	 & -0.52	 & \textbf{0.09}	 & -0.08	 & \textbf{0.03}	 & \textbf{0.10}	 & \textbf{0.21}	 & \textbf{0.76}	\\
+ Market return  & \textbf{0.08}	 & \textbf{0.12}	 & -0.00	 & -0.17	 & \textbf{0.24}	 & -0.17	 & -0.50	 & -0.03	 & \textbf{0.08}	 & \textbf{0.24}	\\
+ LT yield  & \textbf{0.04}	 & -0.37	 & \textbf{0.30}	 & -0.43	 & -0.09	 & \textbf{0.11}	 & -0.45	 & \textbf{0.22}	 & -0.10	 & \textbf{0.13}	\\
+ CPI inflation  & \textbf{0.14}	 & \textbf{0.30}	 & \textbf{0.24}	 & -0.04	 & -0.12	 & -0.04	 & \textbf{0.01}	 & -0.10	 & -0.10	 & \textbf{0.01}	\\
+\midrule
+ Log TPR  & \textbf{0.10}	 & -0.07	 & \textbf{0.07}	 & \textbf{0.88}	 & \textbf{0.16}	 & \textbf{0.85}	 & \textbf{0.73}	 & \textbf{0.35}	 & -0.04	 & \textbf{0.62}	\\
+ Log TPV  & \textbf{0.02}	 & -0.11	 & \textbf{0.48}	 & -0.20	 & \textbf{0.71}	 & \textbf{0.48}	 & \textbf{0.21}	 & \textbf{0.36}	 & \textbf{0.03}	 & \textbf{0.59}	\\
+ Log REC  & -0.81	 & -0.19	 & -0.10	 & -0.96	 & -0.30	 & -0.13	 & -1.79	 & -0.83	 & \textbf{0.10}	 & \textbf{0.10}	\\
+ Log REC return  & -0.57	 & \textbf{0.05}	 & \textbf{0.18}	 & \textbf{0.44}	 & \textbf{0.09}	 & -0.14	 & \textbf{0.29}	 & -0.32	 & \textbf{0.26}	 & \textbf{0.40}	\\
+\bottomrule\bottomrule
+\end{tabularx}
+\vspace{0.2cm}
+\caption*{\footnotesize \textit{Note:} The table provides forecast performance results in terms of mean out-of-sample R$^2$ for 20 Dow Jones constituents (sample: 2004 - 2015) with a one month forecast horizon. The benchmark model is a simple mean model. For each asset, we estimate a Bayesian VAR system with time-varying coefficients and stochastic volatility for the monthly excess returns on an intercept and a lagged predictor variable, i.e. $\begin{bmatrix}r_t\\x_t\end{bmatrix}=a_t+A_{1,t}\begin{bmatrix}r_{t-i}\\x_{t-i}\end{bmatrix}+\varepsilon_t$, $t=1,\ldots,T$, $A_t= \phi A_{t-1}+(1-\phi)\underline{A}_0+u_t$, where $A_t=[a_t\,\,\, A_{1,t}]$ is time-index for every single parameter, $\varepsilon_t\stackrel{iid}{\sim}\No{0,\Sigma_t}$, $u_t\stackrel{iid}{\sim}\No{0,\Omega_t}$ and $\varepsilon_t$ and $u_s$ are independent of one each other for all $t$ and $s$. We estimate the model using forgetting factors with the following parameter values: $\lambda=0.99$, $\kappa=0.96$ and $\phi=0.5$. The mean of the predictive distribtion is tilted towards the mean of the monthly forward target price implied expected returns. Further, DY is the dividend yield, PR is the earnings-price ratio, DPR is the dividend-price-ratio, BMR is the book-to-market ratio, LT is longterm yield, TPR is the target price return, TPV the target price variance and REC stands for recommendations. Values above zero indicate that a given predictor has better forecast performance than the benchmark model, while negative values suggest the opposite. All values are multiplied by 100. We test statistical significance in the average loss between the each model and a simple mean model using the \cite{diebold1995} test. One/two/three asterisks denote rejection of the null hypothesis of equal predictive ability at the ten/five/one percent test level.}
+\end{center}}
+\end{table}

@@ -1,0 +1,162 @@
+% Enumerate Counter
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+% New Envirmoments
+%\newcommand{\argmin}{\arg\!\min}
+%\newcommand{\argmax}{\arg\!\max}
+
+\newcommand{\am}[1]{\underset{#1}{\rm arg \, min } \,}
+% arg min über {}
+\newcommand{\amx}[1]{\underset{#1}{\rm arg max } \,}
+% arg max über {}
+
+% argmin, argmax
+\newcommand{\argmin}[1]{\underset{#1}{\rm arg \, min } \,}
+\newcommand{\argmax}[1]{\underset{#1}{\rm arg max } \,}
+
+
+% Frieder's commands
+%\newcommand{\N}[2]{\text{N} \left( \, #1 \, , \, #2 \, \right)}
+\newcommand{\No}[1]{\text{N}\hspace{-0.05cm}\left(#1\right)}
+\newcommand{\Ex}[1]{\text{E}\hspace{-0.05cm}\left(#1\right)}
+\newcommand{\cov}[1]{\text{cov}\hspace{-0.05cm}\left(#1\right)}
+
+%\newcommand{\IG}[2]{\text{IG} \left( \, #1 \, , \, #2 \, \right)}
+\newcommand{\IG}[2]{\text{IG} \left( \, #1 \, , \, #2 \, \right)}
+
+
+% Ingmar's commands
+\DeclareMathOperator*{\pr}{Pr}
+\newcommand{\p}[1]{\pr \left[ #1 \right]}
+\newcommand{\pc}[2]{\pr \left[ #1 \left| #2 \right.\right]}
+\newcommand{\pci}[3]{\pr_#3 \left[ #1 \left| #2 \right.\right]}
+\DeclareMathOperator*{\Ew}{E}
+\DeclareMathOperator*{\ewd}{\hat E}
+\newcommand{\ew}{{\Ew}}
+\newcommand{\e}[1]{\ensuremath{\Ew \left[ {#1} \right]}}
+\newcommand{\edach}[1]{\ensuremath{\ewd \left[{#1} \right]}}
+\newcommand{\ec}[2]{\Ew \left[ \left. #1 \right| #2 \right]}
+\DeclareMathOperator*{\var}{V}
+\newcommand{\va}[1]{\var\left[ {#1} \right]}
+\newcommand{\vc}[2]{\var \left[ \left. #1 \right| #2 \right]}
+\newcommand{\estvar}[1]{ \hat{\var} \left[ #1 \right]}
+\DeclareMathOperator*{\cova}{Cov} \DeclareMathOperator*{\cor}{Corr}
+%\newcommand{\cov}[1]{{\cova}\left[ {#1} \right]}
+\newcommand{\corr}[1]{{\cor}\left[ {#1} \right]}
+\newcommand{\no}[1]{{\rm N} \left( #1 \right)}
+\newcommand{\nor}{\rm N}
+\newcommand{\iidno}[1]{{\rm \stackrel{iid}{\sim} N} \left( #1 \right)}
+\newcommand{\nv}[1]{\Phi \left( #1 \right)}
+\DeclareMathOperator*{\median}{median} \DeclareMathOperator*{\mini}{min}
+\DeclareMathOperator*{\maxi}{max}
+\newcommand{\set}{\mathbb}
+\newcommand{\setdef}[3]{\set #1 &:=& \left\{ #2 \quad : \quad #3 \right\}}
+\newcommand{\plimn}{\underset{N\rightarrow \infty}{\rm plim } \quad }
+\newcommand{\plimt}{\underset{T\rightarrow \infty}{\rm plim } \quad }
+\newcommand{\plim}{\mathrm{p}\hspace*{-3pt}\lim\limits}
+\newcommand{\pd}[2]{ \frac{\partial #1}{\partial #2}}
+
+
+\newcommand{\Tab}[4]{
+\begin{center}
+$
+\begin{array}{c}
+\text{#1} \\
+\text{ \parbox[t]{#4}{\vspace*{0,05cm}\footnotesize{\refstepcounter{table}{\bf Table \thetable: \hspace*{-0.25cm} #3}
+#2}}}
+\end{array}
+$
+\end{center}
+}
+
+\newcommand{\TabC}[4]{\addtocounter{table}{-1}
+\begin{center}
+$
+\begin{array}{c}
+\text{#1} \\
+\text{ \parbox[t]{#4}{\vspace*{0,05cm}\footnotesize{\refstepcounter{table}{\bf Table \thetable~(cont'd): \hspace*{-0.25cm} #3}
+#2}}}
+\end{array}
+$
+\end{center}
+}
+
+\newcommand{\TabT}[5]{
+\begin{center}
+$
+\begin{array}{l}
+\text{#1} \\
+\text{#2} \\
+\text{ \parbox[t]{#5}{\vspace*{0,05cm}\footnotesize{\refstepcounter{table}{\bf Table \thetable: \hspace*{-0.25cm}#4}
+#3}}}
+\end{array}
+$
+\end{center}
+}
+
+\newcommand{\Fig}[4]{
+\begin{center}
+$
+\begin{array}{l}
+#1 \\
+\text{ \parbox[t]{#4}{\vspace*{0,1cm}\footnotesize{\refstepcounter{figure}{\vspace*{-0.5cm} {\bf Figure \thefigure:} \hspace*{-0.15cm} #3} #2}}}
+\end{array}
+$
+\end{center}
+}
+
+\newcommand{\FigC}[4]{\addtocounter{figure}{-1}
+\begin{center}
+$
+\begin{array}{l}
+#1 \\
+\text{ \parbox[t]{#4}{\vspace*{0,1cm}\footnotesize{\refstepcounter{figure}{\vspace*{-0.5cm} {\bf Figure \thefigure~(cont'd).} \hspace*{-0.15cm} #3} #2}}}
+\end{array}
+$
+\end{center}
+}
+
+
+
+% % % New Commands?
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\beqno}{\begin{equation*}}
+\newcommand{\eeqno}{\end{equation*}}
+\newcommand{\beqn}{\begin{eqnarray}}
+\newcommand{\eeqn}{\end{eqnarray}}
+\newcommand{\beqnn}{\begin{eqnarray*}}
+\newcommand{\eeqnn}{\end{eqnarray*}}
+\newcommand{\balgn}{\begin{align}}
+\newcommand{\ealgn}{\end{align}}
+\newcommand{\balgnn}{\begin{align*}}
+\newcommand{\ealgnn}{\end{align*}}
+%\newcommand{\si}{\sigma}
+\newcommand{\nono}{\nonumber}
+\newcommand{\mbb}{\mathbb}
+\newcommand{\mca}{\mathcal}
+\newcommand{\msc}{\mathscr}
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+\newcommand{\lhs}{\hspace{0.4cm}}
+\newcommand{\shs}{\hspace{0.2cm}}
+\newcommand{\lvs}{\vspace{0.4cm}}
+\newcommand{\svs}{\vspace{0.2cm}}
+\newcommand{\mbbe}{\mathbb{E}}
+\newcommand{\mbbv}{\mathbb{V}}
+\newcommand{\mbbcv}{\mathbb{CV}}
+\newcommand{\mc}{\multicolumn}
+\newcommand{\bbm}{\begin{bmatrix}}
+\newcommand{\ebm}{\end{bmatrix}}
+\newcommand{\lf}{\lfloor}
+\newcommand{\rf}{\rfloor}
+
+\newcommand{\VEC}{\text{vec}}
+%\newcommand{\E}{\text{E}}
+\newcommand{\V}{\text{V}}
+
+\newcommand{\hilit}[1]{ \textcolor{green}{\textbf{#1}}}

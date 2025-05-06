@@ -1,0 +1,48 @@
+\begin{table}[h!]
+\fontsize{11}{15}\selectfont{
+\begin{center}
+\caption{Forecast performance in terms of cumulative sum of squared forecast errors for 20 Dow Jones constituents (sample: 2004 - 2015) using a Bayesian VAR(1)}
+\label{tab:mCSSED_BVAR}
+\vspace{-0.2cm}
+\begin{tabularx}{1\textwidth}{@{}X@{\hspace{0.25cm}}l@{\hspace{0.25cm}}l@{\hspace{0.25cm}}l@{\hspace{0.25cm}}l@{\hspace{0.25cm}}l@{\hspace{0.25cm}}l@{\hspace{0.25cm}}l@{\hspace{0.25cm}}l@{\hspace{0.25cm}}l@{\hspace{0.25cm}}l@{}}
+\toprule\toprule
+ Stock  & AA	 & AAPL	 & AIG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 & HD	\\
+\midrule
+ Log DY  & -7.03	 & -0.09	 & -16.04	 & -0.20	 & -1.33	 & -0.15	 & -0.01	 & -0.03	 & -0.18	 & -0.03	\\
+ Log EPR  & -0.97	 & -0.12	 & -0.33	 & -0.16	 & -20.63	 & -0.05	 & -0.01	 & -0.03	 & -0.09	 & -0.04	\\
+ Log DPR  & -0.09	 & -0.07	 & -0.03	 & -0.15	 & -0.11	 & \textbf{0.00}	 & -0.01	 & \textbf{0.01}	 & -0.18	 & -0.03	\\
+ BMR  & -0.17	 & \textbf{0.02}	 & -1.52	 & -0.05	 & -0.06	 & -0.07	 & -0.01	 & -0.04	 & -0.01	 & -0.01	\\
+\midrule
+ 3M Tbill rate  & -0.06	 & -0.01	 & -0.31	 & -0.00	 & -0.04	 & -0.07	 & -0.02	 & -0.05	 & -0.05	 & -0.02	\\
+ Market ret  & -0.04	 & \textbf{0.01}	 & -0.31	 & -0.04	 & -0.04	 & -0.05	 & -0.01	 & -0.03	 & -0.04	 & -0.01	\\
+ LT yield  & -0.06	 & -0.04	 & \textbf{0.12}	 & -0.03	 & -0.03	 & -0.03	 & -0.01	 & -0.02	 & -0.02	 & -0.03	\\
+ CPI inflation  & -0.10	 & -0.02	 & -0.45	 & -0.08	 & -0.05	 & -0.07	 & -0.01	 & -0.05	 & -0.08	 & -0.00	\\
+\midrule
+ Log TPR  & -0.04	 & -0.08	 & -1.82	 & -0.12	 & -0.03	 & -0.09	 & -0.01	 & -0.04	 & -0.11	 & -0.00	\\
+ Log TPV  & -0.12	 & -0.03	 & -0.17	 & -0.08	 & -0.04	 & -0.15	 & -0.01	 & -0.05	 & -0.06	 & \textbf{0.01}	\\
+ Log REC  & -0.11	 & -0.06	 & -0.21	 & -0.06	 & -0.10	 & -0.07	 & -0.01	 & -0.07	 & -0.04	 & -0.02	\\
+ Log REC ret  & -0.09	 & -0.13	 & -0.40	 & \textbf{0.00}	 & -0.03	 & -0.05	 & -0.01	 & -0.04	 & -0.07	 & -0.01	\\
+\midrule
+\midrule
+ Stock  & INTC	 & IBM	 & JNJ	 & MCD	 & MRK	 & MSFT	 & PG	 & UTX	 & WMT	 & DIS	\\
+\midrule
+ Log DY  & -0.03	 & -0.01	 & -0.02	 & -0.01	 & -0.03	 & -0.03	 & -0.02	 & -0.06	 & -0.01	 & -0.02	\\
+ Log EPR  & -0.03	 & -0.01	 & -0.00	 & -0.01	 & -0.06	 & -0.02	 & -0.01	 & -0.02	 & -0.01	 & \textbf{0.02}	\\
+ Log DPR  & -0.01	 & -0.02	 & -0.02	 & -0.03	 & -0.02	 & -0.01	 & -0.03	 & \textbf{0.01}	 & -0.00	 & -0.04	\\
+ BMR  & -0.02	 & -0.01	 & -0.01	 & -0.00	 & -0.01	 & -0.03	 & -0.01	 & -0.02	 & -0.01	 & -0.01	\\
+\midrule
+ 3M Tbill rate  & -0.05	 & -0.02	 & -0.01	 & -0.01	 & -0.03	 & -0.02	 & -0.02	 & -0.03	 & -0.01	 & \textbf{0.01}	\\
+ Market ret  & -0.02	 & -0.00	 & -0.00	 & -0.01	 & -0.02	 & -0.00	 & -0.01	 & -0.01	 & -0.00	 & -0.01	\\
+ LT yield  & -0.03	 & -0.02	 & -0.01	 & -0.02	 & -0.05	 & -0.04	 & -0.01	 & -0.02	 & -0.01	 & -0.01	\\
+ CPI inflation  & -0.05	 & -0.02	 & -0.01	 & -0.01	 & -0.03	 & -0.02	 & -0.01	 & -0.03	 & -0.01	 & -0.03	\\
+\midrule
+ Log TPR  & -0.03	 & -0.01	 & -0.01	 & -0.00	 & -0.04	 & -0.03	 & -0.01	 & -0.01	 & -0.01	 & -0.04	\\
+ Log TPV  & -0.08	 & -0.01	 & -0.01	 & -0.01	 & -0.04	 & -0.02	 & -0.02	 & -0.03	 & -0.02	 & -0.03	\\
+ Log REC  & -0.07	 & -0.01	 & -0.01	 & -0.04	 & -0.03	 & -0.03	 & -0.01	 & -0.05	 & -0.01	 & -0.02	\\
+ Log REC ret  & -0.03	 & -0.02	 & -0.01	 & -0.01	 & -0.04	 & -0.03	 & -0.01	 & -0.04	 & -0.01	 & -0.02	\\
+\bottomrule\bottomrule
+\end{tabularx}
+\vspace{0.2cm}
+\caption*{\footnotesize \textit{Note:} The table provides forecast performance results in terms of the mean cumulative sum of squared forecast errors between the benchmark mean model and a single regressor model for 20 Dow Jones constituents (sample: 2004 - 2015) with a one month forecast horizon. For each asset, we estimate a Bayesian VAR system with constant coefficients using the Minnesota prior outlined in section 3 for the monthly excess returns on an intercept and a lagged predictor variable, i.e. $\begin{bmatrix}r_t\\x_t\end{bmatrix}=a+A_1\begin{bmatrix}r_{t-i}\\x_{t-i}\end{bmatrix}+\varepsilon_t$, $t=1,\ldots,T$. Further, DY is the dividend yield, PR is the earnings-price ratio, DPR is the dividend-price-ratio, BMR is the book-to-market ratio, LT is longterm yield, TPR is the target price return, TPV the target price variance and REC stands for recommendations. Values above zero indicate that a given predictor has better forecast performance than the benchmark model, while negative values suggest the opposite. All values are multiplied by 100. We test statistical significance in the average loss between the each model and a simple mean model using the \cite{diebold1995} test. One/two/three asterisks denote rejection of the null hypothesis of equal predictive ability at the ten/five/one percent test level.}
+\end{center}}
+\end{table}

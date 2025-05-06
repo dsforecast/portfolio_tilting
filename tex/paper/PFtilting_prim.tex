@@ -1,0 +1,91 @@
+\documentclass[11pt,a4paper]{article}
+
+\newcommand{\titleinfo}{Using Analysts' Forecasts for Stock Predictions - An Entropic Tilting Approach}
+\title{\titleinfo}
+\def\authora{Christoph Frey}
+\def\affiliation{Erasmus University Rotterdam} 
+\def\email{\href{mailto:christoph.frey@gmail.com}{christoph.frey@gmail.com}}
+\newcommand{\authorinfo}{\authora}
+
+\include{./packages}
+\include{./commands}
+
+\begin{document}
+\begin{titlepage}
+\title{\titleinfo \thanks{I would like to thank Dick van Dijk and Winfried Pohlmeier for helpful comments.
+Financial support by the German Science Foundation (DFG, Project ``Development and application of new methodologies of combining time series and expert survey data for economic forecasting.'') and the Graduate School of Decision Sciences (University of Konstanz) is gratefully acknowledged. All remaining errors are ours.}}
+\author{\Large \authora\thanks{Econometric Institute, Erasmus School of Economics, Erasmus University Rotterdam, Room H11-32, P.O. Box 1738, NL-3000 DR Rotterdam, The Netherlands. Phone (office): (+31) 10 408 1253, fax: (+31) 10 4089162, email: \email.} \\[0.2cm] \large \affiliation}  
+
+
+\date{{{\today}} \\}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent In this paper, we combine predictive density forecasts for US stock returns from Bayesian vector autoregressions with financial analysts' forecasts via entropic tilting. In particular, we modify the predictive density of the asset returns to match moment conditions that are formed based on average analysts' forecasts. The advantage of this approach is that we can combine model-based time-series information with external, forward-looking information in a parsimonious way using closed-form solutions. Using a model with time-varying coefficients and stochastic volatility, we show that tilting the predictive asset return distribution towards the mean and variance of target price implied expected returns  increase prediction accuracy for both point and density forecasts. %This also translates into portfolio gains for an investor who maximizes her expected utility.
+\end{abstract}
+\vfill
+\noindent \textbf{Keywords:} Bayesian vector autoregression, return prediction, tilting\\
+\textbf{JEL classification:} C11, C58, G11
+\end{titlepage}
+
+\begin{center}
+{\LARGE \title{\titleinfo}}
+\end{center}
+
+\begin{abstract}
+	\noindent In this paper, we combine predictive density forecasts for US stock returns from Bayesian vector autoregressions with financial analysts' forecasts via entropic tilting. In particular, we modify the predictive density of the asset returns to match moment conditions that are formed based on average analysts' forecasts. The advantage of this approach is that we can combine model-based time-series information with external, forward-looking information in a parsimonious way using closed-form solutions. Using a model with time-varying coefficients and stochastic volatility, we show that tilting the predictive asset return distribution towards the mean and variance of target price implied expected returns  increase prediction accuracy for both point and density forecasts.
+\end{abstract}
+\thispagestyle{empty}
+\newpage
+
+\section{Introduction}
+\label{sec:intro}
+\input{1_introduction.tex}
+
+\section{Predictive powers}
+\label{sec:literature}
+\input{2_literature.tex}
+
+\section{Methodology}
+\label{sec:methodology}
+\input{3_methodology.tex}
+
+\section{Empirical Application}
+\label{sec:application}
+\input{4_application.tex}
+
+\section{Concluding Remarks}
+\label{sec:conclusions}
+\input{5_conclusions.tex}
+\newpage
+
+
+%\section{Further purposes}
+%\input{further.tex}
+%\newpage
+
+
+\addcontentsline{toc}{section}{\hspace{0.6cm}References}
+%%%%Complete bibliography
+{\setlength{\bibsep}{-0.00\baselineskip}
+\bibliographystyle{ecta}
+\newpage
+\bibliography{../tilting}}
+
+\newpage
+\begin{appendix}
+\section{Appendix}
+\label{sec:appendix}
+\input{6_appendix}
+\end{appendix}
+
+\end{document}
+
+
+
+
+
+
+
+

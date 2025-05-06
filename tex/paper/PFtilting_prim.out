@@ -1,0 +1,20 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Predictive powers}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Analysts' forecasts}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Predictive regressions}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Methodology}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Prediction model}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Time-varying Bayesian VAR and stochastic volatility \(TVP-BVAR with SV\)}{subsection.3.1}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Entropic tilting}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Empirical Application}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{Data and set-up}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Competing models}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.3}{Evaluation criteria}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.4}{Individual predictor performance}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.5}{Complete model performance}{section.4}% 14
+\BOOKMARK [1][-]{section.5}{Concluding Remarks}{}% 15
+\BOOKMARK [1][-]{section.5}{ References}{}% 16
+\BOOKMARK [1][-]{appendix.A}{Appendix}{}% 17
+\BOOKMARK [2][-]{subsection.A.1}{Estimation of the TVP-BVAR with SV using forgetting factors}{appendix.A}% 18
+\BOOKMARK [2][-]{subsection.A.2}{Figures}{appendix.A}% 19
+\BOOKMARK [2][-]{subsection.A.3}{Tables}{appendix.A}% 20

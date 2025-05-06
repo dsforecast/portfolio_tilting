@@ -1,0 +1,117 @@
+\begin{thebibliography}{19}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[\protect\citeauthoryear{Altavilla, Giacomini, and Ragusa}{Altavilla
+  et~al.}{2014}]{altavilla2014}
+\textsc{Altavilla, C., R.~Giacomini, and G.~Ragusa} (2014): \enquote{Anchoring
+  the Yield Curve Using Survey Expectations,} ECB Working Paper No. 1632, ECB.
+
+\bibitem[\protect\citeauthoryear{Barber, Lehavy, McNichols, and Trueman}{Barber
+  et~al.}{2001}]{barber2001}
+\textsc{Barber, B., R.~Lehavy, M.~McNichols, and B.~Trueman} (2001):
+  \enquote{Can {{Investors Profit}} from the {{Prophets}}? {{Security Analyst
+  Recommendations}} and {{Stock Returns}},} \emph{The Journal of Finance}, 56,
+  531--563.
+
+\bibitem[\protect\citeauthoryear{Brav and Lehavy}{Brav and
+  Lehavy}{2003}]{brav2003}
+\textsc{Brav, A. and R.~Lehavy} (2003): \enquote{An {{Empirical Analysis}} of
+  {{Analysts}}' {{Target Prices}}: {{Short}}-Term {{Informativeness}} and
+  {{Long}}-Term {{Dynamics}},} \emph{The Journal of Finance}, 58, 1933--1967.
+
+\bibitem[\protect\citeauthoryear{Cvitani{\'c}, Lazrak, Martellini, and
+  Zapatero}{Cvitani{\'c} et~al.}{2006}]{cvitanic2006}
+\textsc{Cvitani{\'c}, J., A.~Lazrak, L.~Martellini, and F.~Zapatero} (2006):
+  \enquote{Dynamic {{Portfolio Choice}} with {{Parameter Uncertainty}} and the
+  {{Economic Value}} of {{Analysts}}' {{Recommendations}},} \emph{Review of
+  Financial Studies}, 19, 1113--1156.
+
+\bibitem[\protect\citeauthoryear{Da and Schaumburg}{Da and
+  Schaumburg}{2011}]{da2011}
+\textsc{Da, Z. and E.~Schaumburg} (2011): \enquote{Relative Valuation and
+  Analyst Target Price Forecasts,} \emph{Journal of Financial Markets}, 14,
+  161--192.
+
+\bibitem[\protect\citeauthoryear{Dangl and Halling}{Dangl and
+  Halling}{2012}]{dangl2012}
+\textsc{Dangl, T. and M.~Halling} (2012): \enquote{Predictive regressions with
+  time-varying coefficients,} \emph{Journal of Financial Economics}, 106,
+  157--181.
+
+\bibitem[\protect\citeauthoryear{Doan, Litterman, and Sims}{Doan
+  et~al.}{1984}]{doan1984}
+\textsc{Doan, T., R.~Litterman, and C.~Sims} (1984): \enquote{Forecasting and
+  Conditional Projection using Realistic Prior Distributions,}
+  \emph{Econometric Reviews}, 3, 1--100.
+
+\bibitem[\protect\citeauthoryear{Frey and Pohlmeier}{Frey and
+  Pohlmeier}{2015}]{frey2016a}
+\textsc{Frey, C. and W.~Pohlmeier} (2015): \enquote{Bayesian Regularization of
+  Portfolio Weights,} Tech. rep., Department of Economics, University of
+  Konstanz, http://ssrn.com/abstract=2730475.
+
+\bibitem[\protect\citeauthoryear{Giacomini and Ragusa}{Giacomini and
+  Ragusa}{2014}]{giacomini2014}
+\textsc{Giacomini, R. and G.~Ragusa} (2014): \enquote{Theory-Coherent
+  Forecasting,} \emph{Journal of Econometrics}, 182, 145--155.
+
+\bibitem[\protect\citeauthoryear{Green}{Green}{2006}]{green2006}
+\textsc{Green, T.~C.} (2006): \enquote{The {{Value}} of {{Client Access}} to
+  {{Analyst Recommendations}},} \emph{Journal of Financial and Quantitative
+  Analysis}, 41, 1--24.
+
+\bibitem[\protect\citeauthoryear{Johannes, Korteweg, and Polson}{Johannes
+  et~al.}{2014}]{johannes2014}
+\textsc{Johannes, M., A.~Korteweg, and N.~Polson} (2014): \enquote{Sequential
+  Learning, Predictability, and Optimal Portfolio Returns,} \emph{The Journal
+  of Finance}, 69, 611{\textendash}644.
+
+\bibitem[\protect\citeauthoryear{Kandel and Stambaugh}{Kandel and
+  Stambaugh}{1987}]{kandel1987}
+\textsc{Kandel, S. and R.~F. Stambaugh} (1987): \enquote{Long-horizon returns
+  and short-horizon models,} CRSP Working paper 222, University of Chicago.
+
+\bibitem[\protect\citeauthoryear{Koop and Korobilis}{Koop and
+  Korobilis}{2013}]{koop2013}
+\textsc{Koop, G. and D.~Korobilis} (2013): \enquote{Large time-varying
+  parameter {{VARs}},} \emph{Journal of Econometrics}, 177, 185--198.
+
+\bibitem[\protect\citeauthoryear{Kr\"{u}ger, Clark, and Ravazzolo}{Kr\"{u}ger
+  et~al.}{2015}]{krueger2015}
+\textsc{Kr\"{u}ger, F., T.~E. Clark, and F.~Ravazzolo} (2015): \enquote{Using
+  Entropic Tilting to Combine {BVAR} Forecasts with External Nowcasts,}
+  \emph{Journal of Business \& Economic Statistics}, 1--48.
+
+\bibitem[\protect\citeauthoryear{Metaxoglou, Pettenuzzo, and Smith}{Metaxoglou
+  et~al.}{2016}]{metaxoglou2016}
+\textsc{Metaxoglou, K., D.~Pettenuzzo, and A.~Smith} (2016):
+  \enquote{Option-Implied Equity Premium Predictions via Entropic Tilting,}
+  \emph{Available at SSRN 2754246}.
+
+\bibitem[\protect\citeauthoryear{Pettenuzzo and Ravazzolo}{Pettenuzzo and
+  Ravazzolo}{2016}]{pettenuzzo2016}
+\textsc{Pettenuzzo, D. and F.~Ravazzolo} (2016): \enquote{Optimal Portfolio
+  Choice Under {Decision-Based} Model Combinations,} \emph{Journal of Applied
+  Econometrics}, forthecoming.
+
+\bibitem[\protect\citeauthoryear{Raftery, K{\'a}rn{\'y}, and Ettler}{Raftery
+  et~al.}{2010}]{raftery2010}
+\textsc{Raftery, A.~E., M.~K{\'a}rn{\'y}, and P.~Ettler} (2010):
+  \enquote{Online {{Prediction Under Model Uncertainty}} via {{Dynamic Model
+  Averaging}}: {{Application}} to a {{Cold Rolling Mill}},}
+  \emph{Technometrics}, 52, 52--66.
+
+\bibitem[\protect\citeauthoryear{Ramnath, Rock, and Shane}{Ramnath
+  et~al.}{2008}]{ramnath2008}
+\textsc{Ramnath, S., S.~Rock, and P.~Shane} (2008): \enquote{The financial
+  analyst forecasting literature: A taxonomy with suggestions for further
+  research,} \emph{International Journal of Forecasting}, 24, 34--75.
+
+\bibitem[\protect\citeauthoryear{Robertson, Tallman, and Whiteman}{Robertson
+  et~al.}{2005}]{robertson2005}
+\textsc{Robertson, J.~C., E.~W. Tallman, and C.~H. Whiteman} (2005):
+  \enquote{Forecasting Using Relative Entropy,} \emph{Journal of Money, Credit
+  and Banking}, 37, 383{\textendash}401.
+
+\end{thebibliography}

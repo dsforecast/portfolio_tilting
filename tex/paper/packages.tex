@@ -1,0 +1,174 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%        FONT         %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}   			   % Language and hyphenation
+\usepackage[OT1]{fontenc} 	               % PDF output as accents
+\usepackage[utf8]{inputenc}              % directly input of accents
+%\usepackage{garamondx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%     PAGE STYLE      %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry} % page layout
+\usepackage{setspace} % line space
+\usepackage{microtype}
+%\setstretch{1.5}
+%\pagestyle{empty}
+%\setlength{\parindent}{0.5cm}
+\doublespacing
+%\setlength{\parskip}{0.2cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%    SECTION TITLES   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[medium]{titlesec}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MATHEMATICS AND PROGRAMM CODE %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{marvosym,nicefrac}
+%\usepackage{dsfont}
+\usepackage{bm} % bold math symbolds
+%\numberwithin{equation}{section} % equation numbers by section
+\usepackage{listings} % code environment
+\usepackage{stmaryrd}
+
+\lstset{language=Matlab,
+    	backgroundcolor={\color{lgrey}},
+    	basicstyle={\footnotesize\ttfamily},
+    	breakautoindent=true,
+    	breakindent=10pt,
+    	breaklines=true,
+    	captionpos=t,
+    	columns=fixed,
+    	commentstyle={\itshape\color{colComments}},
+    	extendedchars=true,
+    	float=hbp,
+    	frame=single,
+    	identifierstyle={\color{colIdentifier}},
+    	keywordstyle={\color{colKeys}},
+    	numbers=right,
+    	stepnumber=5,
+    	firstnumber=1,
+    	numberfirstline=true
+    	%numbersep=1em,
+    	numberstyle={\scriptsize\ttfamily},
+    	showspaces=false,
+    	showstringspaces=false,
+    	stringstyle={\color{colString}},
+    	tabsize=4,
+    	xleftmargin=3px,
+    	xrightmargin=3px
+    	}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% GRAPHICS AND COLORS %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{color,xcolor,graphicx}
+\definecolor{DarkBlue}{rgb}{0.1,0,0.55}
+\definecolor{DarkGreen}{RGB}{24,126,35}
+% Colors for Matlab-Listings
+\definecolor{lgrey}{RGB}{245,245,245}     % background
+\definecolor{colKeys}{RGB}{0,0,255}       % blue
+\definecolor{colIdentifier}{RGB}{0,0,0}	  % black
+\definecolor{colComments}{RGB}{34,139,34} % green
+\definecolor{colString}{RGB}{160,32,240}  % purple
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LINKS AND HYPERREF %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[hyphens]{url}
+\usepackage[pdfborder={0 0 0},bookmarks=true,breaklinks=true]{hyperref}
+ \usepackage[anythingbreaks]{breakurl}
+\hypersetup{colorlinks=true,
+			citecolor = DarkBlue,
+			pdftitle = {\titleinfo}, 
+			pdfauthor = {\authorinfo},
+			pdfpagelabels=TRUE,
+			pdfstartview = {FitH},
+			linkcolor = DarkBlue,
+			urlcolor  = DarkBlue
+			}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TABLES AND FIGURES AND LISTS %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{multirow,multicol}
+\usepackage{longtable, tabularx, array, pbox, rotating,fullpage}
+\usepackage{enumitem} % \begin{enumerate}[resume] to continue a previous list
+%\usepackage{float}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%    VARIOUS STUFF    %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{todonotes} 				   % To Do Lists with \todo{text}
+\RequirePackage[l2tabu, orthodox]{nag} % Check for the 12 Tabus
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%% BIBLIOGRAPHY %%%
+%%%%%%%%%%%%%%%%%%%%
+%\usepackage{harvard}
+\usepackage[sectionbib]{natbib}
+\let\natbibcitet\citet
+\renewcommand\citet{\bibpunct{(}{)}{,}{a}{,}{,}\natbibcitet}
+\let\natbibcitep\citep
+\renewcommand\citep{\bibpunct{(}{)}{;}{a}{,}{;}\natbibcitep}
+
+%%%%%%%%%%%%%%%%%%%%
+%%% RandNotizen  %%%
+%%%%%%%%%%%%%%%%%%%%
+\setlength{\marginparwidth}{15mm}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% Special Content %%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{standard}% name
+  {0,5cm}      % Space above
+  {0,5cm}      % Space below
+  {\upshape} % Body font
+  {}         % Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {}        % Punctuation after thm head
+  {\newline} % Space after thm head: " " = normal interword space;
+             % \newline = linebreak
+  {}         % Thm head spec (can be left empty, meaning `normal')
+%
+\theoremstyle{standard}
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{defi}{Definition}[section]
+\newtheorem{theo}{Theorem}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{assu}{Assumption}[section]
+\newtheorem{excu}{Excursus}[section]
+\newtheorem{prf}{Proof}[section]
+%
+%
+\newtheoremstyle{notes}% name
+  {0.5cm}      % Space above
+  {0.5cm}      % Space below
+  {} % Body font
+  {}         % Indent amount (empty = no indent, \parindent = para indent)
+  {\itshape}% Thm head font
+  {}        % Punctuation after thm head
+  {\newline} % Space after thm head: " " = normal interword space;
+             % \newline = linebreak
+  {}         % Thm head spec (can be left empty, meaning `normal')
+%
+\theoremstyle{notes}
+\newtheorem{exam}{Example}[section]
+\newtheorem{nota}{Notation}[section]
+\newtheorem{rema}{Remark}[section]
+\newtheorem{hypo}{Hypothesis}
+\newtheorem{exerc}{\large{Exercise}}[subsection]
+\newtheorem{exerc1}{\large{Exercise}}[section]

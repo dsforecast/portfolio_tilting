@@ -1,0 +1,46 @@
+\begin{table}[h!]
+\fontsize{11}{18}\selectfont{
+\begin{center}
+\caption{Forecast performance in terms of average log predictive score differentials for 20 Dow Jones constituents (sample: 2004 - 2015) for various forecasting models}
+\label{tab:mCLSD_ALL}
+\vspace{-0.2cm}
+\begin{tabularx}{1\textwidth}{@{}X@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{\hspace{0.15cm}}l@{}}
+\toprule\toprule
+ Stock  & AA	 & AAPL	 & AIG	 & AXP	 & BA	 & CAT	 & KO	 & DD	 & GE	 & HD	\\
+\midrule
+ AR1  & \textbf{0.01}	 & -0.01	 & -0.46	 & \textbf{0.33}	 & \textbf{0.12}	 & -0.09	 & -0.06	 & -0.01	 & \textbf{0.05}	 & -0.05	\\
+ VAR-Full  & -0.91	 & -1.29	 & -2.29	 & \textbf{0.01}	 & -1.31	 & -1.24	 & -0.93	 & -1.78	 & -0.74	 & -0.41	\\
+ VAR-Minnesota  & \textbf{0.10}	 & \textbf{0.32}	 & \textbf{0.25}	 & \textbf{0.77}	 & \textbf{0.42}	 & \textbf{0.08}	 & \textbf{0.29}	 & \textbf{0.75}	 & \textbf{0.15}	 & \textbf{0.32}	\\
+\midrule
+ TVPVAR-DMA  & \textbf{0.21}	 & \textbf{0.74}	 & -0.11	 & \textbf{0.75}	 & \textbf{0.28}	 & \textbf{0.73}	 & \textbf{0.56}	 & \textbf{0.72}	 & \textbf{0.85}	 & \textbf{0.01}	\\
+ TVPVAR-DMS  & -0.06	 & \textbf{0.57}	 & -0.28	 & \textbf{0.49}	 & \textbf{0.27}	 & \textbf{0.47}	 & \textbf{0.44}	 & \textbf{0.71}	 & \textbf{0.63}	 & -0.03	\\
+\midrule
+ TVPVAR-DMAm  & \textbf{0.21}	 & \textbf{0.76}	 & -0.07	 & \textbf{0.76}	 & \textbf{0.32}	 & \textbf{0.77}	 & \textbf{0.60}	 & \textbf{0.77}	 & \textbf{0.87}	 & \textbf{0.03}	\\
+ TVPVAR-DMAm/v  & \textbf{0.80}	 & $\mathbf{1.83^{***}}$	 & \textbf{0.72}	 & $\mathbf{1.83^{***}}$	 & \textbf{0.54}	 & $\mathbf{1.31^{**}}$	 & \textbf{0.62}	 & $\mathbf{1.56^{**}}$	 & $\mathbf{1.52^{**}}$	 & \textbf{0.96}	\\
+ TVPVAR-DMSm  & -0.02	 & \textbf{0.60}	 & -0.27	 & \textbf{0.53}	 & \textbf{0.30}	 & \textbf{0.51}	 & \textbf{0.48}	 & \textbf{0.73}	 & \textbf{0.66}	 & -0.01	\\
+ TVPVAR-DMSm/v  & \textbf{0.88}	 & $\mathbf{1.55^{**}}$	 & \textbf{0.11}	 & \textbf{0.87}	 & \textbf{0.48}	 & $\mathbf{1.05^{*}}$	 & \textbf{0.82}	 & $\mathbf{1.56^{**}}$	 & \textbf{0.90}	 & \textbf{0.55}	\\
+\midrule
+ Bayesian lasso  & \textbf{0.23}	 & \textbf{0.84}	 & -0.04	 & \textbf{0.85}	 & \textbf{0.32}	 & \textbf{0.83}	 & \textbf{0.56}	 & \textbf{0.79}	 & \textbf{0.93}	 & \textbf{0.04}	\\
+\midrule
+\midrule
+ Stock  & INTC	 & IBM	 & JNJ	 & MCD	 & MRK	 & MSFT	 & PG	 & UTX	 & WMT	 & DIS	\\
+\midrule
+ AR1  & -0.09	 & -0.07	 & -0.08	 & -0.05	 & -0.09	 & -0.08	 & -0.04	 & -0.01	 & -0.01	 & \textbf{0.18}	\\
+ VAR-Full  & -1.35	 & -1.32	 & -0.73	 & -1.66	 & -2.09	 & -2.04	 & -0.29	 & -0.48	 & -0.06	 & -1.03	\\
+ VAR-Minnesota  & \textbf{0.60}	 & -0.03	 & \textbf{0.48}	 & \textbf{0.73}	 & \textbf{0.13}	 & \textbf{0.03}	 & \textbf{0.51}	 & \textbf{0.72}	 & \textbf{0.48}	 & \textbf{0.90}	\\
+\midrule
+ TVPVAR-DMA  & \textbf{0.86}	 & \textbf{0.43}	 & \textbf{0.68}	 & \textbf{0.69}	 & \textbf{0.74}	 & \textbf{0.08}	 & \textbf{0.42}	 & \textbf{0.61}	 & \textbf{0.92}	 & $\mathbf{1.02^{*}}$	\\
+ TVPVAR-DMS  & \textbf{0.82}	 & \textbf{0.25}	 & \textbf{0.60}	 & \textbf{0.60}	 & \textbf{0.62}	 & -0.04	 & \textbf{0.30}	 & \textbf{0.42}	 & \textbf{0.87}	 & \textbf{0.96}	\\
+\midrule
+ TVPVAR-DMAm  & \textbf{0.89}	 & \textbf{0.45}	 & \textbf{0.72}	 & \textbf{0.73}	 & \textbf{0.77}	 & \textbf{0.09}	 & \textbf{0.45}	 & \textbf{0.62}	 & \textbf{0.95}	 & $\mathbf{1.04^{*}}$	\\
+ TVPVAR-DMAm/v  & $\mathbf{1.95^{***}}$	 & $\mathbf{1.45^{**}}$	 & $\mathbf{1.13^{*}}$	 & \textbf{0.69}	 & $\mathbf{1.33^{**}}$	 & \textbf{0.31}	 & \textbf{0.66}	 & \textbf{0.97}	 & $\mathbf{1.03^{*}}$	 & $\mathbf{1.84^{***}}$	\\
+ TVPVAR-DMSm  & \textbf{0.85}	 & \textbf{0.29}	 & \textbf{0.64}	 & \textbf{0.60}	 & \textbf{0.66}	 & -0.04	 & \textbf{0.32}	 & \textbf{0.46}	 & \textbf{0.91}	 & \textbf{0.98}	\\
+ TVPVAR-DMSm/v  & $\mathbf{1.01^{*}}$	 & $\mathbf{1.18^{*}}$	 & \textbf{0.83}	 & $\mathbf{1.14^{*}}$	 & $\mathbf{1.64^{**}}$	 & \textbf{0.40}	 & \textbf{0.46}	 & \textbf{0.80}	 & $\mathbf{1.28^{**}}$	 & $\mathbf{1.32^{**}}$	\\
+\midrule
+ Bayesian lasso  & \textbf{0.96}	 & \textbf{0.51}	 & \textbf{0.76}	 & \textbf{0.75}	 & \textbf{0.82}	 & \textbf{0.11}	 & \textbf{0.44}	 & \textbf{0.64}	 & \textbf{0.98}	 & $\mathbf{1.10^{*}}$	\\
+\bottomrule\bottomrule
+\end{tabularx}
+\vspace{0.2cm}
+\caption*{\footnotesize \textit{Note:} The table provides forecast performance results in terms of average log predictive score differentials between the benchmark mean model and a single regressor model for 20 Dow Jones constituents (sample: 2004 - 2015) with a one month forecast horizon. For each asset, we estimate various Bayesian VAR systems described sections \ref{sec:methodology} and \ref{sec:application}. Values above zero indicate that a given predictor has better forecast performance than the benchmark model, while negative values suggest the opposite. All values are multiplied by 100. We test statistical significance in the average loss between the each model and a simple mean model using the \cite{diebold1995} test. One/two/three asterisks denote rejection of the null hypothesis of equal predictive ability at the ten/five/one percent test level.}
+\end{center}}
+\end{table}
